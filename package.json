@@ -1,0 +1,51 @@
+{
+  "name": "pwa",
+  "version": "0.1.0",
+  "description": "PWA made with React",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config ./webpack/webpack.prod.js",
+    "dev": "webpack-serve --config ./webpack/webpack.dev.js",
+    "prod": "npm run build & http-server dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://fake.com"
+  },
+  "keywords": [
+    "pwa",
+    "react",
+    "webpack"
+  ],
+  "author": "Danilo Barros <danilobjr@gmail.com> (http://danilobjr.github.com/)",
+  "license": "MIT",
+  "sideEffects": false,
+  "dependencies": {
+    "@material-ui/core": "1.2.0",
+    "react": "16.4.0",
+    "react-dom": "16.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "16.3.17",
+    "@types/react-dom": "16.0.6",
+    "clean-webpack-plugin": "0.1.19",
+    "connect-history-api-fallback": "1.5.0",
+    "css-loader": "0.28.11",
+    "ejs-loader": "0.3.1",
+    "html-webpack-plugin": "3.2.0",
+    "koa-connect": "2.0.1",
+    "node-sass": "4.9.0",
+    "sass-loader": "7.0.2",
+    "style-loader": "0.21.0",
+    "ts-loader": "4.3.0",
+    "tslib": "1.9.2",
+    "tslint": "5.10.0",
+    "typescript": "2.9.1",
+    "webpack": "4.11.1",
+    "webpack-cli": "3.0.3",
+    "webpack-merge": "4.1.2",
+    "webpack-serve": "1.0.3",
+    "workbox-webpack-plugin": "3.2.0"
+  }
+}
