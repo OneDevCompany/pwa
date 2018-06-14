@@ -30,7 +30,6 @@ const config = {
     alias: {
       components: resolvePath('src/components'),
       styles: resolvePath('src/styles'),
-      'odc-ui': resolvePath('src/components/ui'),
     },
     extensions: ['.ts', '.tsx', '.js', '.json', '.sass', '.scss'],
   },

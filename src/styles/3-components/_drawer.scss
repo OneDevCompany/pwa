@@ -1,0 +1,21 @@
+.odc-drawer.mdc-drawer--temporary {
+  .mdc-drawer__drawer {
+    background: linear-gradient(#006dff, #002de4);
+
+    .mdc-toolbar {
+      background: transparent;
+    }
+
+    .mdc-toolbar__section.mdc-toolbar__section--align-start {
+      padding-left: 16px;
+
+      .mdc-toolbar__title {
+        margin-left: 0;
+      }
+    }
+
+    .mdc-list-item {
+      @include mdc-states-base-color(white);
+    }
+  }
+}
