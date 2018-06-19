@@ -1,0 +1,71 @@
+{
+  "_from": "@types/next@6.0.1",
+  "_id": "@types/next@6.0.1",
+  "_inBundle": false,
+  "_integrity": "sha512-spyMLgI2WYZlTfteiGQc//92Tae1tXxSkM8ySQ2w0YF176FfI5niJfAjBxCLx9AVZIB4g/Qyy4TBoneD5k/TMQ==",
+  "_location": "/@types/next",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@types/next@6.0.1",
+    "name": "@types/next",
+    "escapedName": "@types%2fnext",
+    "scope": "@types",
+    "rawSpec": "6.0.1",
+    "saveSpec": null,
+    "fetchSpec": "6.0.1"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@types/next/-/next-6.0.1.tgz",
+  "_shasum": "ba3c15a2944d56f4e5baa96d1f52f2e2c47451c2",
+  "_spec": "@types/next@6.0.1",
+  "_where": "/home/danilo/dev/pwa",
+  "bugs": {
+    "url": "https://github.com/DefinitelyTyped/DefinitelyTyped/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Drew Hays",
+      "url": "https://github.com/dru89"
+    },
+    {
+      "name": "Brice BERNARD",
+      "url": "https://github.com/brikou"
+    },
+    {
+      "name": "James Hegedus",
+      "url": "https://github.com/jthegedus"
+    },
+    {
+      "name": "Resi Respati",
+      "url": "https://github.com/resir014"
+    },
+    {
+      "name": "Scott Jones",
+      "url": "https://github.com/scottdj92"
+    }
+  ],
+  "dependencies": {
+    "@types/node": "*",
+    "@types/node-fetch": "*",
+    "@types/react": "*"
+  },
+  "deprecated": false,
+  "description": "TypeScript definitions for next",
+  "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped#readme",
+  "license": "MIT",
+  "main": "",
+  "name": "@types/next",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DefinitelyTyped/DefinitelyTyped.git"
+  },
+  "scripts": {},
+  "typeScriptVersion": "2.6",
+  "typesPublisherContentHash": "9002ddb48b436483e49e6fd5d0de81e3cff25c235244dac4ea075cefb4cb0d20",
+  "version": "6.0.1"
+}

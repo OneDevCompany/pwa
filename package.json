@@ -28,7 +28,7 @@
     "rmwc": "1.7.0"
   },
   "devDependencies": {
-    "@types/next": "6.0.1",
+    "@types/next": "file:custom_typings/next",
     "@types/react": "16.3.17",
     "@types/react-dom": "16.0.6",
     "@types/rmwc": "file:custom_typings/rmwc",
