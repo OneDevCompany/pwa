@@ -123,13 +123,13 @@ export class Layout extends Component<LayoutProps, State> {
 
           <DrawerContent>
             <ListItem theme="on-secondary">
-              <ListItemText>Cookies</ListItemText>
+              <ListItemText>Menu Item</ListItemText>
             </ListItem>
             <ListItem theme="on-secondary">
-              <ListItemText>Pizza</ListItemText>
+              <ListItemText>Menu Item</ListItemText>
             </ListItem>
             <ListItem theme="on-secondary">
-              <ListItemText>Icecream</ListItemText>
+              <ListItemText>Menu Item</ListItemText>
             </ListItem>
           </DrawerContent>
         </Drawer>
