@@ -109,9 +109,7 @@ export class Layout extends Component<LayoutProps, State> {
           {/* <DrawerHeader>{appBarTitle}</DrawerHeader> */}
           <Toolbar>
             <ToolbarRow>
-              <ToolbarSection alignStart>
-                <ToolbarTitle>{appTitle}</ToolbarTitle>
-              </ToolbarSection>
+              <ToolbarTitle>{appTitle}</ToolbarTitle>
               <ToolbarSection alignEnd>
                 <ToolbarIcon use="arrow_back" onClick={this.toggleDrawer(false)} />
               </ToolbarSection>
