@@ -59,7 +59,7 @@ export class Layout extends Component<LayoutProps, State> {
   // }
 
   render() {
-    const { appTitle } = this.props;
+    const { appTitle, children } = this.props;
     const { drawerOpen } = this.state;
 
     return (
@@ -76,6 +76,9 @@ export class Layout extends Component<LayoutProps, State> {
             </TopAppBarSection>
           </TopAppBarRow>
         </TopAppBar>
+
+        {children}
+
         <Drawer
           className="odc-drawer"
           open={drawerOpen}
