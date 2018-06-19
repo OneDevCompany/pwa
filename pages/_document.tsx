@@ -15,7 +15,6 @@ export default class MyDocument extends Document {
           {/* <meta name="theme-color" content="#9f25b3" /> */}
 
           <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-          {/* <link rel="dns-prefetch" href="//storage.googleapis.com" /> */}
           <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
           <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
           <link rel="shortcut icon" href="/static/favicon.ico" />
