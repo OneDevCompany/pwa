@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Foundation, SimpleTag, SimpleTagProps } from '../Base';
+import { MDCFoundation, SimpleTag, SimpleTagProps } from '../Base';
 import { IconButtonProps } from '../Icon';
 
 /** A row for the app bar. */
@@ -40,4 +40,4 @@ type TopAppBarPropsT = {
 } & SimpleTagProps<HTMLElement>
 
 /** A TopAppBar component */
-export class TopAppBar extends Foundation<TopAppBarPropsT> { }
+export class TopAppBar extends MDCFoundation<TopAppBarPropsT> { }
