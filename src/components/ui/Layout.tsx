@@ -9,7 +9,6 @@ import {
   TopAppBar,
   TopAppBarRow,
   TopAppBarSection,
-  TopAppBarNavigationIcon,
   TopAppBarTitle,
 } from 'rmwc/TopAppBar';
 import {
