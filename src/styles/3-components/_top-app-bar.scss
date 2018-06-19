@@ -6,8 +6,28 @@
   background-color: white;
   border-bottom: 1px solid rgba(0,0,0,.12);
 
+  .odc-square-button {
+    width: 64px;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: $mdc-toolbar-mobile-breakpoint) {
+      width: 56px;
+    }
+  }
+
   &__title {
+    padding-left: 0;
+    margin-left: 8px;
     font-weight: 300;
+
+    @media (max-width: $mdc-toolbar-mobile-breakpoint) {
+      margin-left: 12px;
+    }
   }
 
   .material-icons {

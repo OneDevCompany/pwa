@@ -2,7 +2,9 @@ import * as React from 'react';
 import { Component, Fragment } from 'react';
 // import equal from 'fast-deep-equal';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
+import { Icon } from 'rmwc/Icon';
 import { ListItem, ListItemText } from 'rmwc/List';
+import { Ripple } from 'rmwc/Ripple';
 import {
   TopAppBar,
   TopAppBarRow,
@@ -94,12 +96,12 @@ export class Layout extends Component<LayoutProps, State> {
       <Fragment>
         <TopAppBar className="odc-top-app-bar">
           <TopAppBarRow>
+            <Ripple>
+              <div className="odc-square-button" onClick={this.toggleDrawer(true)}>
+                <Icon use="menu" />
+              </div>
+            </Ripple>
             <TopAppBarSection alignStart>
-              <TopAppBarNavigationIcon
-                theme="text-primary-on-background"
-                use="menu"
-                onClick={this.toggleDrawer(true)}
-              />
               <TopAppBarTitle>{appTitle}</TopAppBarTitle>
             </TopAppBarSection>
           </TopAppBarRow>
