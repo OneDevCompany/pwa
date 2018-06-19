@@ -37,35 +37,6 @@ import {
 //   },
 // };
 
-// const styles = (theme: Theme) => createStyles({
-//   drawerPaper: {
-//     background: customColors.drawer.background,
-//   },
-//   drawerTitle: {
-//     flex: 1,
-//     color: customColors.text.contrastColor.primary,
-//   },
-//   drawerCloseIcon: {
-//     color: customColors.text.contrastColor.secondary,
-//   },
-//   drawerCloseIconButton: {
-//     color: theme.palette.common.white,
-//   },
-//   drawerListItem: {
-//     width: 320,
-//   },
-//   flex: {
-//     flex: 1,
-//   },
-//   menuButton: {
-//     marginLeft: -12,
-//     marginRight: 20,
-//   },
-//   whiteText: {
-//     color: theme.palette.primary.main,
-//   },
-// });
-
 export type LayoutProps = {
   appTitle?: string,
 };
@@ -111,7 +82,6 @@ export class Layout extends Component<LayoutProps, State> {
           temporary
           onClose={this.toggleDrawer(false)}
         >
-          {/* <DrawerHeader>{appBarTitle}</DrawerHeader> */}
           <Toolbar>
             <ToolbarRow>
               <ToolbarTitle>{appTitle}</ToolbarTitle>
@@ -138,7 +108,6 @@ export class Layout extends Component<LayoutProps, State> {
   }
 
   toggleDrawer = (drawerOpen: boolean) => () => {
-    console.log(drawerOpen);
     this.setState({ drawerOpen });
   }
 }

@@ -3,8 +3,8 @@ import Document, { Head, Main, NextScript } from 'next/document';
 
 import '../src/styles/index.scss';
 
-console.log('TODO', 'set theme colors');
-console.log('TODO', 'split CSS code');
+console.warn('TODO', 'set theme colors');
+console.warn('TODO', 'split CSS code');
 
 export default class MyDocument extends Document {
   render() {
