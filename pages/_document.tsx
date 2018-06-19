@@ -20,6 +20,7 @@ export default class MyDocument extends Document {
           {/* <link rel="dns-prefetch" href="//storage.googleapis.com" /> */}
           <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
           <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+          <link rel="shortcut icon" href="/static/favicon.ico" />
           <link rel="stylesheet" href="/_next/static/style.css" />
         </Head>
         <body>
