@@ -1,0 +1,12 @@
+body:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 100vh;
+  background: linear-gradient(#006dff, #002de4);
+  z-index: 5;
+
+  @media (max-width: $mdc-toolbar-mobile-breakpoint) {
+    width: 5px;
+  }
+}

@@ -1,0 +1,21 @@
+.odc-top-app-bar,
+.mdc-top-app-bar {
+  left: 10px;
+  width: calc(100% - 10px);
+  color: rgba(0,0,0,.87);
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,.12);
+
+  &__title {
+    font-weight: 300;
+  }
+
+  .material-icons {
+    @include mdc-states-base-color(black);
+  }
+
+  @media (max-width: $mdc-toolbar-mobile-breakpoint) {
+    width: calc(100% - 5px);
+    left: 5px;
+  }
+}

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component, Fragment } from 'react';
 // import equal from 'fast-deep-equal';
-import { Drawer, DrawerHeader, DrawerContent } from 'rmwc/Drawer';
+import { Drawer, DrawerContent } from 'rmwc/Drawer';
 import { ListItem, ListItemText } from 'rmwc/List';
 import {
   TopAppBar,
@@ -92,11 +92,15 @@ export class Layout extends Component<LayoutProps, State> {
 
     return (
       <Fragment>
-        <TopAppBar>
+        <TopAppBar className="odc-top-app-bar">
           <TopAppBarRow>
             <TopAppBarSection alignStart>
-              <TopAppBarNavigationIcon use="menu" onClick={this.toggleDrawer(true)} />
-              <TopAppBarTitle>Title</TopAppBarTitle>
+              <TopAppBarNavigationIcon
+                theme="text-primary-on-background"
+                use="menu"
+                onClick={this.toggleDrawer(true)}
+              />
+              <TopAppBarTitle>{appTitle}</TopAppBarTitle>
             </TopAppBarSection>
           </TopAppBarRow>
         </TopAppBar>
