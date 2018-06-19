@@ -7,7 +7,7 @@ const resolvePath = fileName => path.resolve(__dirname, '../', fileName);
 
 const sources = {
   root: resolvePath('./'),
-  distFolder: resolvePath('dist'),
+  buildFolder: resolvePath('build'),
   entries: {
     index: resolvePath('src/index.tsx'),
   },
@@ -23,8 +23,8 @@ const config = {
   output: {
     // filename: '[name].[hash].bundle.js',
     // chunkFilename: '[name].[hash].chunk.js',
-    path: sources.distFolder,
-    // publicPath: sources.distFolder,
+    path: sources.buildFolder,
+    // publicPath: sources.buildFolder,
   },
   resolve: {
     alias: {
@@ -37,29 +37,16 @@ const config = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader'
+        use: 'ts-loader',
       },
       {
         test: /\.ejs$/,
         use: 'ejs-loader',
       },
-      {
-        test: /\.s(a|c)ss$/,
-        use: [
-          { loader: 'style-loader' },
-          { loader: 'css-loader' },
-          {
-            loader: 'sass-loader',
-            options: {
-              includePaths: ['./node_modules'],
-            },
-          },
-        ],
-      }
-    ]
+    ],
   },
   plugins: [
-    new CleanWebpackPlugin([sources.distFolder], {
+    new CleanWebpackPlugin([sources.buildFolder], {
       root: sources.root,
     }),
     new HtmlWebpackPlugin({

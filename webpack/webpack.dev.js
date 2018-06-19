@@ -6,6 +6,23 @@ const merge = require('webpack-merge');
 
 module.exports = merge(config, {
   mode: 'development',
+  module: {
+    rules: [
+      {
+        test: /\.s(a|c)ss$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['./node_modules'],
+            },
+          },
+        ],
+      },
+    ],
+  },
   devtool: 'inline-source-map',
   serve: {
     content: sources.distFolder,
