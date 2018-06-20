@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Component, Fragment } from 'react';
+// import Link from 'next/link';
+import { Link } from 'components/commons';
 // import equal from 'fast-deep-equal';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
 import { Icon } from 'rmwc/Icon';
@@ -67,7 +69,7 @@ export class Layout extends Component<LayoutProps, State> {
         <TopAppBar className="odc-top-app-bar">
           <TopAppBarRow>
             <Ripple>
-              <div className="odc-square-button" onClick={this.toggleDrawer(true)}>
+              <div className="odc-square-button" onClick={this.openDrawer}>
                 <Icon use="menu" />
               </div>
             </Ripple>
@@ -83,34 +85,39 @@ export class Layout extends Component<LayoutProps, State> {
           className="odc-drawer"
           open={drawerOpen}
           temporary
-          onClose={this.toggleDrawer(false)}
+          onClose={this.closeDrawer}
         >
           <Toolbar>
             <ToolbarRow>
               <ToolbarTitle>{appTitle}</ToolbarTitle>
               <ToolbarSection alignEnd>
-                <ToolbarIcon use="arrow_back" onClick={this.toggleDrawer(false)} />
+                <ToolbarIcon use="arrow_back" onClick={this.closeDrawer} />
               </ToolbarSection>
             </ToolbarRow>
           </Toolbar>
 
-          <DrawerContent>
-            <ListItem theme="on-secondary">
-              <ListItemText>Menu Item</ListItemText>
-            </ListItem>
-            <ListItem theme="on-secondary">
-              <ListItemText>Menu Item</ListItemText>
-            </ListItem>
-            <ListItem theme="on-secondary">
-              <ListItemText>Menu Item</ListItemText>
-            </ListItem>
+          <DrawerContent onClick={this.closeDrawer}>
+            <Link href="/">
+              <ListItem theme="on-secondary">
+                <ListItemText>Home</ListItemText>
+              </ListItem>
+            </Link>
+            <Link href="/other">
+              <ListItem theme="on-secondary">
+                <ListItemText>Other</ListItemText>
+              </ListItem>
+            </Link>
           </DrawerContent>
         </Drawer>
       </Fragment>
     );
   }
 
-  toggleDrawer = (drawerOpen: boolean) => () => {
+  closeDrawer = () => this.toggleDrawer(false);
+
+  openDrawer = () => this.toggleDrawer(true);
+
+  toggleDrawer = (drawerOpen: boolean) => {
     this.setState({ drawerOpen });
   }
 }
