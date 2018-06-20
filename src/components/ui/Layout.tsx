@@ -64,7 +64,7 @@ export class Layout extends Component<LayoutProps, State> {
 
     return (
       <Fragment>
-        <TopAppBar className="odc-top-app-bar">
+        <TopAppBar short className="odc-top-app-bar">
           <TopAppBarRow>
             <SquareButton use="menu" onClick={this.openDrawer} />
             <TopAppBarSection alignStart>
