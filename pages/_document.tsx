@@ -1,9 +1,6 @@
 import * as React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 
-console.warn('TODO', 'set theme colors');
-console.warn('TODO', 'split CSS code');
-
 export default class MyDocument extends Document {
   render() {
     return (
