@@ -1,5 +1,5 @@
-.odc-drawer.mdc-drawer--temporary {
-  .mdc-drawer__drawer {
+.odc-drawer.mdc-drawer--temporary .mdc-drawer {
+  &__drawer {
     background: linear-gradient(#006dff, #002de4);
 
     .mdc-toolbar {
@@ -31,5 +31,9 @@
         padding: 0 16px;
       }
     }
+  }
+
+  &__content {
+    flex-grow: 0;
   }
 }
