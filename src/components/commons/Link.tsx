@@ -16,7 +16,7 @@ const LinkComponent: SFC<LinkInternalProps> = ({ children, router, href, ...othe
   };
 
   const props = {
-    className: `odc-link ${isActive({ href, router }) ? 'active' : ''}`,
+    className: `odc-link ${isActive({ href, router }) ? 'odc-linkk__active' : ''}`,
     href,
     ...otherProps,
   };
