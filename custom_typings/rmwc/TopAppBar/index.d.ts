@@ -24,7 +24,7 @@ export class TopAppBarActionItem extends React.Component<IconButtonProps> { }
 /** A title for the top app bar. */
 export class TopAppBarTitle extends SimpleTag<HTMLSpanElement> { }
 
-type TopAppBarPropsT = {
+type TopAppBarProps = {
   /** Emits when the navigation icon is clicked. */
   onNav?: (evt: Event) => {},
   /** Styles the top app bar as a fixed top app bar. */
@@ -40,4 +40,4 @@ type TopAppBarPropsT = {
 } & SimpleTagProps<HTMLElement>
 
 /** A TopAppBar component */
-export class TopAppBar extends MDCFoundation<TopAppBarPropsT> { }
+export class TopAppBar extends MDCFoundation<TopAppBarProps> { }
