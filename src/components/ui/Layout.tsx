@@ -1,12 +1,10 @@
 import * as React from 'react';
 import { Component, Fragment } from 'react';
-// import Link from 'next/link';
 import { Link } from 'components/commons';
+import { SquareButton } from 'components/ui';
 // import equal from 'fast-deep-equal';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
-import { Icon } from 'rmwc/Icon';
 import { ListItem, ListItemText } from 'rmwc/List';
-import { Ripple } from 'rmwc/Ripple';
 import {
   TopAppBar,
   TopAppBarRow,
@@ -68,11 +66,7 @@ export class Layout extends Component<LayoutProps, State> {
       <Fragment>
         <TopAppBar className="odc-top-app-bar">
           <TopAppBarRow>
-            <Ripple>
-              <div className="odc-square-button" onClick={this.openDrawer}>
-                <Icon use="menu" />
-              </div>
-            </Ripple>
+            <SquareButton use="menu" onClick={this.openDrawer} />
             <TopAppBarSection alignStart>
               <TopAppBarTitle>{appTitle}</TopAppBarTitle>
             </TopAppBarSection>
