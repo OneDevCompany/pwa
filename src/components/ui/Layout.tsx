@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import { Link } from 'components/commons';
-import { SquareButton, TopAppBar } from 'components/ui';
+import { TopAppBar, TopAppBarNavigationButton } from 'components/ui';
 // import equal from 'fast-deep-equal';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
 import { ListItem, ListItemText } from 'rmwc/List';
@@ -62,10 +62,10 @@ export class Layout extends Component<LayoutProps, State> {
     const { drawerOpen } = this.state;
 
     return (
-      <Fragment>
+      <div className="odc-layout">
         <TopAppBar>
           <TopAppBarRow>
-            <SquareButton use="menu" onClick={this.openDrawer} />
+            <TopAppBarNavigationButton onClick={this.openDrawer} />
             <TopAppBarSection alignStart>
               <TopAppBarTitle>{appTitle}</TopAppBarTitle>
             </TopAppBarSection>
@@ -102,7 +102,7 @@ export class Layout extends Component<LayoutProps, State> {
             </Link>
           </DrawerContent>
         </Drawer>
-      </Fragment>
+      </div>
     );
   }
 
