@@ -1,39 +1,13 @@
-.odc-drawer.mdc-drawer--temporary .mdc-drawer {
-  &__drawer {
-    background: linear-gradient(#006dff, #002de4);
+.odc-drawer.mdc-drawer--temporary .mdc-drawer__drawer .mdc-toolbar {
+  height: 56px;
+  background: transparent;
 
-    .mdc-toolbar {
-      height: 56px;
-      background: transparent;
+  .mdc-toolbar__title {
+    margin-left: 20px;
+    font-weight: 300;
 
-      .mdc-toolbar__title {
-        margin-left: 20px;
-        font-weight: 300;
-
-        @media (max-width: $mdc-toolbar-mobile-breakpoint) {
-          margin-left: 16px;
-        }
-      }
+    @media (max-width: $mdc-toolbar-mobile-breakpoint) {
+      margin-left: 16px;
     }
-
-    .mdc-list-item {
-      @include mdc-states-base-color(white);
-      padding: 0 20px;
-      font-size: .8rem;
-      font-weight: 300;
-      text-transform: uppercase;
-
-      &:hover {
-        cursor: pointer;
-      }
-
-      @media (max-width: $mdc-toolbar-mobile-breakpoint) {
-        padding: 0 16px;
-      }
-    }
-  }
-
-  &__content {
-    flex-grow: 0;
   }
 }
