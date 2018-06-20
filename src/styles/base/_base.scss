@@ -1,21 +1,22 @@
 body {
-  padding-left: 10px;
+  padding-left: $odc-side-tape-width-lg;
 
   &:before {
     content: '';
     position: absolute;
     left: 0;
     width: 10px;
+    width: $odc-side-tape-width-lg;
     height: 100vh;
-    background: linear-gradient(#006dff, #002de4);
+    background: $odc-theme-gradient-bg;
     z-index: 5;
 
     @media (max-width: $mdc-toolbar-mobile-breakpoint) {
-      width: 5px;
+      width: $odc-side-tape-width-sm;
     }
   }
 
   @media (max-width: $mdc-toolbar-mobile-breakpoint) {
-    padding-left: 5px;
+    padding-left: $odc-side-tape-width-sm;
   }
 }

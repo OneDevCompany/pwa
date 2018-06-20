@@ -1,9 +1,9 @@
 .odc-top-app-bar,
 .mdc-top-app-bar {
   position: relative;
-  color: rgba(0,0,0,.87);
+  color: $odc-theme-text-primary-on-background;
   background-color: white;
-  border-bottom: 1px solid rgba(0,0,0,.12);
+  border-bottom: 1px solid $odc-theme-barely-black;
 
   .odc-square-button.navigation-button {
     border-top: none;

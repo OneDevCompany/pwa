@@ -3,7 +3,7 @@
 
 .odc-layout {
   .mdc-drawer__drawer {
-    background: linear-gradient(#006dff, #002de4);
+    background: $odc-theme-gradient-bg;
 
     .mdc-list-item {
       @include mdc-states-base-color(white);
