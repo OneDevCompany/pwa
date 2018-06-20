@@ -32,9 +32,4 @@
   .material-icons {
     @include mdc-states-base-color(black);
   }
-
-  @media (max-width: $mdc-toolbar-mobile-breakpoint) {
-    width: calc(100% - 5px);
-    left: 5px;
-  }
 }

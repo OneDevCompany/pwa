@@ -14,4 +14,8 @@ body {
       width: 5px;
     }
   }
+
+  @media (max-width: $mdc-toolbar-mobile-breakpoint) {
+    padding-left: 5px;
+  }
 }
