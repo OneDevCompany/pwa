@@ -7,7 +7,7 @@ type SquareButtonProps = { use: ReactNode } & HTMLProps<HTMLDivElement>;
 
 export const SquareButton: SFC<SquareButtonProps> = ({ className, use, ...otherProps }) => (
   <Ripple>
-    <div className={`odc-square-button ${className}`} {...otherProps}>
+    <div className={`odc-square-button ${className || ''}`} {...otherProps}>
       <Icon use={use} />
     </div>
   </Ripple>
