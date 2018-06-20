@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { Component, Fragment } from 'react';
 import { Link } from 'components/commons';
-import { SquareButton } from 'components/ui';
+import { SquareButton, TopAppBar } from 'components/ui';
 // import equal from 'fast-deep-equal';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
 import { ListItem, ListItemText } from 'rmwc/List';
 import {
-  TopAppBar,
   TopAppBarRow,
   TopAppBarSection,
   TopAppBarTitle,
@@ -64,7 +63,7 @@ export class Layout extends Component<LayoutProps, State> {
 
     return (
       <Fragment>
-        <TopAppBar short className="odc-top-app-bar">
+        <TopAppBar>
           <TopAppBarRow>
             <SquareButton use="menu" onClick={this.openDrawer} />
             <TopAppBarSection alignStart>
