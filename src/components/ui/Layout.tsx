@@ -18,7 +18,7 @@ import {
 } from 'rmwc/Toolbar';
 
 export type LayoutProps = {
-  appTitle?: string,
+  appName?: string,
 };
 
 type State = {
@@ -27,7 +27,7 @@ type State = {
 
 export class Layout extends Component<LayoutProps, State> {
   static defaultProps: Partial<LayoutProps> = {
-    appTitle: '',
+    appName: '',
   };
 
   state: State = {
@@ -35,7 +35,7 @@ export class Layout extends Component<LayoutProps, State> {
   };
 
   render() {
-    const { appTitle, children } = this.props;
+    const { appName, children } = this.props;
     const { drawerOpen } = this.state;
 
     return (
@@ -44,7 +44,7 @@ export class Layout extends Component<LayoutProps, State> {
           <TopAppBarRow>
             <TopAppBarNavigationButton onClick={this.openDrawer} />
             <TopAppBarSection alignStart>
-              <TopAppBarTitle>{appTitle}</TopAppBarTitle>
+              <TopAppBarTitle>{appName}</TopAppBarTitle>
             </TopAppBarSection>
           </TopAppBarRow>
         </TopAppBar>
@@ -59,7 +59,7 @@ export class Layout extends Component<LayoutProps, State> {
         >
           <Toolbar>
             <ToolbarRow>
-              <ToolbarTitle>{appTitle}</ToolbarTitle>
+              <ToolbarTitle>{appName}</ToolbarTitle>
               <ToolbarSection alignEnd>
                 <ToolbarIcon use="arrow_back" onClick={this.closeDrawer} />
               </ToolbarSection>

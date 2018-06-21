@@ -19,7 +19,7 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        <Layout appTitle="App Name">
+        <Layout appName="App Name">
           <Component {...pageProps} />
         </Layout>
       </Container>
