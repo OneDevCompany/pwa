@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { Component } from 'react';
-import { Link } from 'components/commons';
+import { Component, ReactNode } from 'react';
 import { TopAppBar, TopAppBarNavigationButton } from 'components/ui';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
-import { ListItem, ListItemText } from 'rmwc/List';
 import {
   TopAppBarRow,
   TopAppBarSection,
@@ -19,6 +17,7 @@ import {
 
 export type LayoutProps = {
   appName?: string,
+  drawerContent?: ReactNode,
 };
 
 type State = {
@@ -28,6 +27,7 @@ type State = {
 export class Layout extends Component<LayoutProps, State> {
   static defaultProps: Partial<LayoutProps> = {
     appName: '',
+    drawerContent: undefined,
   };
 
   state: State = {
@@ -35,7 +35,7 @@ export class Layout extends Component<LayoutProps, State> {
   };
 
   render() {
-    const { appName } = this.props;
+    const { appName, drawerContent } = this.props;
     const { drawerOpen } = this.state;
 
     return (
@@ -64,18 +64,11 @@ export class Layout extends Component<LayoutProps, State> {
             </ToolbarRow>
           </Toolbar>
 
-          <DrawerContent onClick={this.closeDrawer}>
-            <Link href="/">
-              <ListItem theme="on-secondary">
-                <ListItemText>Home</ListItemText>
-              </ListItem>
-            </Link>
-            <Link href="/other">
-              <ListItem theme="on-secondary">
-                <ListItemText>Other</ListItemText>
-              </ListItem>
-            </Link>
-          </DrawerContent>
+          {!!drawerContent && (
+            <DrawerContent onClick={this.closeDrawer}>
+              {drawerContent}
+            </DrawerContent>
+          )}
         </Drawer>
       </div>
     );
