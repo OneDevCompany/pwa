@@ -35,7 +35,7 @@ export class Layout extends Component<LayoutProps, State> {
   };
 
   render() {
-    const { appName, children } = this.props;
+    const { appName } = this.props;
     const { drawerOpen } = this.state;
 
     return (
@@ -48,8 +48,6 @@ export class Layout extends Component<LayoutProps, State> {
             </TopAppBarSection>
           </TopAppBarRow>
         </TopAppBar>
-
-        {children}
 
         <Drawer
           className="odc-drawer"
