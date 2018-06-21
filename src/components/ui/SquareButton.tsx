@@ -1,9 +1,11 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import { HTMLProps, ReactNode, SFC } from 'react';
 import { Icon } from 'rmwc/Icon';
 import { Ripple } from 'rmwc/Ripple';
 
 type SquareButtonProps = {
+  primary?: boolean;
   ripplePrimary?: boolean;
   use: ReactNode;
 } & HTMLProps<HTMLDivElement>;
@@ -11,13 +13,21 @@ type SquareButtonProps = {
 export const SquareButton: SFC<SquareButtonProps> = ({
   className,
   disabled,
+  primary,
   ripplePrimary,
   use,
   ...otherProps }) => {
 
   return (
     <Ripple primary={ripplePrimary}>
-      <div className={`odc-square-button ${className || ''}`} {...otherProps}>
+      <div
+        className={classNames(
+          'odc-square-button',
+          { 'odc-square-button__primary': primary },
+          className,
+        )}
+        {...otherProps}
+      >
         <Icon use={use} />
       </div>
     </Ripple>
@@ -25,5 +35,6 @@ export const SquareButton: SFC<SquareButtonProps> = ({
 };
 
 SquareButton.defaultProps = {
+  primary: false,
   ripplePrimary: false,
 };
