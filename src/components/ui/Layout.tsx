@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Component } from 'react';
 import { Link } from 'components/commons';
 import { TopAppBar, TopAppBarNavigationButton } from 'components/ui';
-// import equal from 'fast-deep-equal';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
 import { ListItem, ListItemText } from 'rmwc/List';
 import {
@@ -17,24 +16,6 @@ import {
   ToolbarSection,
   ToolbarTitle,
 } from 'rmwc/Toolbar';
-
-// const customColors = {
-//   button: {
-//     background: 'linear-gradient(#006dff, #0032ff)',
-//   },
-//   drawer: {
-//     background: 'linear-gradient(#006dff, #002de4)',
-//   },
-//   sidebar: {
-//     background: 'linear-gradient(#006dff 16.5%, #002de4 100%)',
-//   },
-//   text: {
-//     contrastColor: {
-//       primary: 'rgba(255,255,255,.87)',
-//       secondary: 'rgba(255,255,255,.60)',
-//     },
-//   },
-// };
 
 export type LayoutProps = {
   appTitle?: string,
@@ -52,10 +33,6 @@ export class Layout extends Component<LayoutProps, State> {
   state: State = {
     drawerOpen: false,
   };
-
-  // shouldComponentUpdate(nextProps: LayoutProps, nextState: State) {
-  //   return !equal(this.state, nextState);
-  // }
 
   render() {
     const { appTitle, children } = this.props;
