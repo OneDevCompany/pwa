@@ -8,10 +8,12 @@ $odc-theme-barely-black: rgba(black, .12);
 $odc-theme-gradient-bg: linear-gradient($odc-theme-primary, $odc-theme-primary-dark);
 $odc-theme-horizontal-gradient-bg: linear-gradient(to right, $odc-theme-primary, $odc-theme-primary-dark);
 
-// Side tape
+// Sizes
 
 $odc-side-tape-width-lg: 10px;
 $odc-side-tape-width-sm: 5px;
+
+$odc-topappbar-height: 56px;
 
 // Overrides of Material Design theme
 
