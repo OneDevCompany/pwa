@@ -7,7 +7,11 @@ export const Datagrid: SFC<{}> = () => (
   <div className="odc-datagrid">
     <Toolbar>
       <ToolbarRow>
-        <SquareButton primary use="add" />
+        <SquareButton
+          noRipple
+          primary
+          use="add"
+        />
       </ToolbarRow>
     </Toolbar>
   </div>
