@@ -8,7 +8,7 @@ body {
     width: 10px;
     width: $odc-side-tape-width-lg;
     height: 100vh;
-    background: $odc-theme-gradient-bg;
+    background: linear-gradient($odc-theme-primary 16.5%, $odc-theme-primary-dark);
     z-index: 5;
 
     @media (max-width: $mdc-toolbar-mobile-breakpoint) {
