@@ -1,0 +1,14 @@
+.odc-toolbar,
+.mdc-toolbar {
+  color: $odc-theme-text-primary-on-background;
+  background: white;
+  border-bottom: 1px solid $odc-theme-barely-black;
+
+  &__row {
+    min-height: $odc-topappbar-height;
+  }
+
+  &__title {
+    font-weight: 300;
+  }
+}

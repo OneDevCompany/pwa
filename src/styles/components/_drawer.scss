@@ -1,10 +1,10 @@
 .odc-drawer.mdc-drawer--temporary .mdc-drawer__drawer .mdc-toolbar {
-  height: $odc-topappbar-height;
+  color: white;
   background: transparent;
+  border: none;
 
   .mdc-toolbar__title {
     margin-left: 20px;
-    font-weight: 300;
 
     @media (max-width: $mdc-toolbar-mobile-breakpoint) {
       margin-left: 16px;
