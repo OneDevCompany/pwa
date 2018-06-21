@@ -5,6 +5,7 @@ import { Icon } from 'rmwc/Icon';
 import { Ripple } from 'rmwc/Ripple';
 
 type SquareButtonProps = {
+  noRipple?: boolean;
   primary?: boolean;
   ripplePrimary?: boolean;
   use: ReactNode;
@@ -13,28 +14,34 @@ type SquareButtonProps = {
 export const SquareButton: SFC<SquareButtonProps> = ({
   className,
   disabled,
+  noRipple,
   primary,
   ripplePrimary,
   use,
   ...otherProps }) => {
 
-  return (
-    <Ripple primary={ripplePrimary}>
-      <div
-        className={classNames(
-          'odc-square-button',
-          { 'odc-square-button__primary': primary },
-          className,
-        )}
-        {...otherProps}
-      >
-        <Icon use={use} />
-      </div>
+  const button = (
+    <div
+      className={classNames(
+        'odc-square-button',
+        { 'odc-square-button__primary': primary },
+        className,
+      )}
+      {...otherProps}
+    >
+      <Icon use={use} />
+    </div>
+  );
+
+  return !!noRipple ? button : (
+    <Ripple disabled={noRipple} primary={ripplePrimary}>
+      {button}
     </Ripple>
   );
 };
 
 SquareButton.defaultProps = {
+  noRipple: false,
   primary: false,
   ripplePrimary: false,
 };
