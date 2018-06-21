@@ -1,0 +1,19 @@
+.odc-datagrid {
+  .mdc-toolbar {
+    color: $odc-theme-text-primary-on-background;
+    background: white;
+    border-bottom: 1px solid $odc-theme-barely-black;
+
+    &__row {
+      min-height: 56px;
+
+      .odc-square-button {
+        color: white;
+        background: $odc-theme-horizontal-gradient-bg;
+        border-top: none;
+        border-bottom: none;
+        border-left: none;
+      }
+    }
+  }
+}

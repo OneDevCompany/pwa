@@ -6,6 +6,7 @@ $odc-theme-text-primary-on-background: var(--mdc-theme-text-primary-on-backgroun
 $odc-theme-barely-black: rgba(black, .12);
 
 $odc-theme-gradient-bg: linear-gradient($odc-theme-primary, $odc-theme-primary-dark);
+$odc-theme-horizontal-gradient-bg: linear-gradient(to right, $odc-theme-primary, $odc-theme-primary-dark);
 
 // Side tape
 
