@@ -13,4 +13,9 @@
   &__title {
     font-weight: 300;
   }
+
+  .mdc-toolbar__icon {
+    color: $odc-theme-text-primary-on-background;
+    @include mdc-states-base-color(black);
+  }
 }

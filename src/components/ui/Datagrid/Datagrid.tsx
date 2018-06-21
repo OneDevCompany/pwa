@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { SFC } from 'react';
-import { Toolbar, ToolbarRow } from 'rmwc/Toolbar';
+import {
+  Toolbar,
+  ToolbarIcon,
+  ToolbarRow,
+  ToolbarSection,
+} from 'rmwc/Toolbar';
 import { SquareButton } from 'components/ui';
 
 export const Datagrid: SFC<{}> = () => (
@@ -12,6 +17,10 @@ export const Datagrid: SFC<{}> = () => (
           primary
           use="add"
         />
+
+        <ToolbarSection alignEnd>
+          <ToolbarIcon use="filter_list" />
+        </ToolbarSection>
       </ToolbarRow>
     </Toolbar>
   </div>
