@@ -1,7 +1,7 @@
 .odc-square-button {
   width: $odc-topappbar-height;
   height: $odc-topappbar-height;
-  border: 1px solid $odc-theme-barely-black;
+  border: $odc-divider-border;
   cursor: pointer;
 
   display: flex;

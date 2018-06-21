@@ -3,7 +3,7 @@
   position: relative;
   color: $odc-theme-text-primary-on-background;
   background-color: white;
-  border-bottom: 1px solid $odc-theme-barely-black;
+  border-bottom: $odc-divider-border;
 
   .odc-square-button__navigation {
     border-top: none;
