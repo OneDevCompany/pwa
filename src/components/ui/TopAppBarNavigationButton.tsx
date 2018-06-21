@@ -5,7 +5,7 @@ import { SquareButton } from 'components/ui';
 
 export const TopAppBarNavigationButton: SFC<HTMLProps<HTMLDivElement>> = ({ className, ...otherProps }) => (
   <SquareButton
-    className={classnames('navigation-button', className)}
+    className={classnames('odc-square-button__navigation', className)}
     ripplePrimary
     use="menu"
     {...otherProps}
