@@ -1,13 +1,9 @@
 .odc-datagrid {
   .mdc-toolbar {
     .odc-square-button {
-      color: white;
-      background: $odc-theme-horizontal-gradient-bg;
       border-top: none;
       border-bottom: none;
       border-left: none;
-
-      @include mdc-states-base-color(white);
     }
   }
 }
