@@ -58,7 +58,7 @@
           align-items: center;
           flex: 1 0 200px;
 
-          &.-active .content,
+          &--active .content,
           .content:hover {
             color: $odc-theme-text-primary-on-background;
           }

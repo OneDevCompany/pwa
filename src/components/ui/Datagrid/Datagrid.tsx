@@ -39,7 +39,7 @@ export const Datagrid: SFC<{}> = () => (
                   <span className="text">Name</span>
                 </div>
               </div>
-              <div className="odc-th -active">
+              <div className="odc-th odc-th--active">
                 <div className="content">
                   <Icon use="arrow_upward" />
                   <span className="text">Email</span>
