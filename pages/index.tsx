@@ -13,6 +13,7 @@ console.warn('TODO', 'add tooltips in buttons and table head');
 console.warn('TODO', 'refactor css for use BEM');
 console.warn('TODO', 'set :active style for primary buttons (SquareButton)');
 console.warn('TODO', 'create type for "value" and "options" props in Select component');
+console.warn('TODO', 'vertical scrollbars not appear when mobile vision');
 console.warn('TODO', 'create a issue at jamesmfriedman/rmwc: TopAppBar:fixed not working. TopAppBar is by default fixed. Set it to fixed={false} doesnt work');
 
 export default () => (
