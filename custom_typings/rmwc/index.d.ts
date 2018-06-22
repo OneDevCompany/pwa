@@ -4,6 +4,7 @@ export * from './Icon';
 export * from './List';
 export * from './Menu';
 export * from './Ripple';
+export * from './Select';
 export * from './Toolbar';
 export * from './TopAppBar';
 export * from './Typography';
