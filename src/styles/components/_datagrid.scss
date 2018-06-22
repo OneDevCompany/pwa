@@ -11,19 +11,23 @@
     }
   }
 
-  > div {
+  .flex-horizontal {
     display: flex;
     flex: 1;
 
-    > div:first-of-type {
+    > div {
+      height: unset !important;
       display: flex;
-      flex: 1;
 
       > div {
-        display: flex !important;
+        display: flex;
 
         > div {
           display: flex !important;
+
+          > div {
+            display: flex !important;
+          }
         }
       }
     }
@@ -50,7 +54,6 @@
           font-weight: 500;
           font-size: .75rem;
           color: $odc-theme-text-secondary-on-background;
-          border-bottom: $odc-divider-border;
           box-sizing: border-box;
           text-align: left;
 
@@ -92,13 +95,19 @@
             font-size: .8125rem;
             font-weight: 400;
             color: $odc-theme-text-primary-on-background;
-            border-bottom: $odc-divider-border;
             box-sizing: border-box;
 
             display: flex;
             align-items: center;
             flex: 1 0 200px;
           }
+        }
+      }
+
+      .odc-thead,
+      .odc-tbody {
+        .odc-tr {
+          border-bottom: $odc-divider-border;
         }
       }
     }
