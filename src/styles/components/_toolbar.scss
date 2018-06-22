@@ -5,6 +5,7 @@
   background: white;
   border-bottom: $odc-divider-border;
   box-sizing: content-box;
+  flex: 0 0 $odc-topappbar-height;
 
   &__row {
     min-height: $odc-topappbar-height;

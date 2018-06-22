@@ -11,56 +11,80 @@
     }
   }
 
-  .odc-table {
-    min-width: 800px;
-    border-spacing: 0;
+  > div {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    flex: 1;
 
-    .odc-thead .odc-tr {
-      height: $odc-topappbar-height;
+    > div:first-of-type {
       display: flex;
+      flex: 1;
 
-      .odc-th {
-        padding: 0 24px;
-        font-family: roboto;
-        font-weight: 500;
-        font-size: .75rem;
-        color: $odc-theme-text-secondary-on-background;
-        border-bottom: $odc-divider-border;
-        box-sizing: border-box;
-        text-align: left;
+      > div {
+        display: flex !important;
 
-        display: flex;
-        align-items: center;
-        flex: 1 0 200px;
+        > div {
+          display: flex !important;
+        }
       }
     }
+  }
 
-    .odc-tbody {
+  .odc-table-wrapper {
+    display: flex;
+    flex-grow: 1;
+
+    .odc-table {
+      min-width: 800px;
+      border-spacing: 0;
       display: flex;
       flex-direction: column;
-      overflow-y: auto;
-      overflow-x: hidden;
+      flex-grow: 1;
 
-      .odc-tr {
-        min-height: 49px;
+      .odc-thead .odc-tr {
+        height: $odc-topappbar-height;
         display: flex;
 
-        .odc-td {
+        .odc-th {
           padding: 0 24px;
+          font-family: roboto;
+          font-weight: 500;
+          font-size: .75rem;
+          color: $odc-theme-text-secondary-on-background;
           border-bottom: $odc-divider-border;
+          box-sizing: border-box;
+          text-align: left;
 
           display: flex;
           align-items: center;
           flex: 1 0 200px;
         }
       }
+
+      .odc-tbody {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        .odc-tr {
+          min-height: 49px;
+          display: flex;
+
+          .odc-td {
+            padding: 0 24px;
+            border-bottom: $odc-divider-border;
+
+            display: flex;
+            align-items: center;
+            flex: 1 0 200px;
+          }
+        }
+      }
     }
   }
 
   .odc-pagination {
+    border: none;
     border-top: $odc-divider-border;
   }
 }
