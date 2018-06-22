@@ -1,6 +1,6 @@
 .odc-toolbar,
 .mdc-toolbar {
-  height: $odc-topappbar-height;
+  min-height: $odc-topappbar-height;
   color: $odc-theme-text-primary-on-background;
   background: white;
   border-bottom: $odc-divider-border;
