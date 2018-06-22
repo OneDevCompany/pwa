@@ -1,9 +1,65 @@
 .odc-datagrid {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+
   .mdc-toolbar {
     .odc-square-button {
       border-top: none;
       border-bottom: none;
       border-left: none;
     }
+  }
+
+  table {
+    border-spacing: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    thead tr {
+      height: $odc-topappbar-height;
+      display: flex;
+
+      th {
+        padding: 0 24px;
+        font-family: roboto;
+        font-weight: 500;
+        font-size: .75rem;
+        color: $odc-theme-text-secondary-on-background;
+        border-bottom: $odc-divider-border;
+        box-sizing: border-box;
+        text-align: left;
+
+        display: flex;
+        align-items: center;
+        flex: 1 0 200px;
+      }
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      tr {
+        min-height: 49px;
+        display: flex;
+
+        td {
+          padding: 0 24px;
+          border-bottom: $odc-divider-border;
+
+          display: flex;
+          align-items: center;
+          flex: 1 0 200px;
+        }
+      }
+    }
+  }
+
+  .odc-pagination {
+    border-top: $odc-divider-border;
   }
 }
