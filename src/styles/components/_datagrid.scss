@@ -11,17 +11,18 @@
     }
   }
 
-  table {
+  .odc-table {
+    min-width: 800px;
     border-spacing: 0;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 
-    thead tr {
+    .odc-thead .odc-tr {
       height: $odc-topappbar-height;
       display: flex;
 
-      th {
+      .odc-th {
         padding: 0 24px;
         font-family: roboto;
         font-weight: 500;
@@ -37,17 +38,17 @@
       }
     }
 
-    tbody {
+    .odc-tbody {
       display: flex;
       flex-direction: column;
       overflow-y: auto;
       overflow-x: hidden;
 
-      tr {
+      .odc-tr {
         min-height: 49px;
         display: flex;
 
-        td {
+        .odc-td {
           padding: 0 24px;
           border-bottom: $odc-divider-border;
 
