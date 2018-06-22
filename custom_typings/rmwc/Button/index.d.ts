@@ -1,5 +1,9 @@
 import { Component } from 'react';
 import { SimpleTagProps, WithRippleProps } from './../Base';
+import { Icon } from './../Icon';
+
+/** An icon that goes inside of buttons. This is an instance of the Icon component. */
+export class ButtonIcon extends Icon { }
 
 type ButtonProps = {
   /** Make the Button dense. */
