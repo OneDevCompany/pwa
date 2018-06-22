@@ -107,5 +107,25 @@
   .odc-pagination {
     border: none;
     border-top: $odc-divider-border;
+
+    .mdc-toolbar__section--align-end {
+      align-items: center;
+    }
+
+    .rows-per-page {
+      color: $odc-theme-text-secondary-on-background;
+      display: flex;
+      align-items: center;
+    }
+
+    .items-counter {
+      margin-left: 20px;
+      color: $odc-theme-text-secondary-on-background;
+    }
+
+    .actions {
+      margin-left: 20px;
+      display: flex;
+    }
   }
 }

@@ -2,13 +2,14 @@ import * as React from 'react';
 import { SFC } from 'react';
 import { Scrollbars } from 'tt-react-custom-scrollbars';
 import { Icon } from 'rmwc/Icon';
+import { Typography } from 'rmwc/Typography';
+import { Select, SquareButton } from 'components/ui';
 import {
   Toolbar,
   ToolbarIcon,
   ToolbarRow,
   ToolbarSection,
 } from 'rmwc/Toolbar';
-import { SquareButton } from 'components/ui';
 
 export const Datagrid: SFC<{}> = () => (
   <div className="odc-datagrid">
@@ -229,8 +230,23 @@ export const Datagrid: SFC<{}> = () => (
     <Toolbar className="odc-pagination">
       <ToolbarRow>
         <ToolbarSection alignEnd>
-          <ToolbarIcon use="chevron_left" />
-          <ToolbarIcon use="chevron_right" />
+          <div className="rows-per-page">
+            <Typography use="caption">Rows per page:</Typography>
+            <Select options={['5', '10', '25']} />
+          </div>
+
+          <div className="items-counter">
+            <Typography className="from" use="caption">1</Typography>
+            <Typography use="caption">{' - '}</Typography>
+            <Typography className="to" use="caption">15</Typography>
+            <Typography use="caption">{' of '}</Typography>
+            <Typography className="total" use="caption">25</Typography>
+          </div>
+
+          <div className="actions">
+            <ToolbarIcon use="chevron_left" />
+            <ToolbarIcon use="chevron_right" />
+          </div>
         </ToolbarSection>
       </ToolbarRow>
     </Toolbar>
