@@ -57,6 +57,23 @@
           display: flex;
           align-items: center;
           flex: 1 0 200px;
+
+          &.-active .content,
+          .content:hover {
+            color: $odc-theme-text-primary-on-background;
+          }
+
+          .content {
+            cursor: pointer;
+            display: flex;
+            align-items: flex-end;
+
+            .material-icons {
+              font-size: 16px;
+              margin-right: .3rem;
+              margin-left: -.2rem;
+            }
+          }
         }
       }
 

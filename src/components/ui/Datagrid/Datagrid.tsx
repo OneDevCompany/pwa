@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { SFC } from 'react';
 import { Scrollbars } from 'tt-react-custom-scrollbars';
+import { Icon } from 'rmwc/Icon';
 import {
   Toolbar,
   ToolbarIcon,
@@ -33,10 +34,27 @@ export const Datagrid: SFC<{}> = () => (
         <div className="odc-table">
           <div className="odc-thead">
             <div className="odc-tr">
-              <div className="odc-th">Name</div>
-              <div className="odc-th">Email</div>
-              <div className="odc-th">Profession</div>
-              <div className="odc-th">Age</div>
+              <div className="odc-th">
+                <div className="content">
+                  <span className="text">Name</span>
+                </div>
+              </div>
+              <div className="odc-th -active">
+                <div className="content">
+                  <Icon use="arrow_upward" />
+                  <span className="text">Email</span>
+                </div>
+              </div>
+              <div className="odc-th">
+                <div className="content">
+                  <span className="text">Profession</span>
+                </div>
+              </div>
+              <div className="odc-th">
+                <div className="content">
+                  <span className="text">Age</span>
+                </div>
+              </div>
             </div>
           </div>
 
