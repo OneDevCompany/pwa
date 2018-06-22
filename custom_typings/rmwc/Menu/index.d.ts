@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MDCFoundation, SimpleTag } from '../Base';
+import { SimpleTag } from '../Base';
 import { List, ListItem } from '../List';
 
 /****************************************************************
@@ -31,7 +31,7 @@ export type MenuProps = {
 };
 
 /** A menu component */
-export class Menu extends MDCFoundation<HTMLDivElement> { }
+export class Menu extends React.Component<MenuProps> { }
 
 export type SimpleMenuProps = {
   /** An element that will open the menu when clicked  */

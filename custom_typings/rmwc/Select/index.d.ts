@@ -1,43 +1,5 @@
 import * as React from 'react';
-import { SimpleTagProps, MDCFoundation } from '../Base';
-import { SimpleTag, syncFoundationProp } from '../Base';
-import { FloatingLabel } from '../FloatingLabel';
-import { LineRipple } from '../LineRipple';
-
-// export const SelectRoot = simpleTag({
-//   displayName: 'SelectRoot',
-//   classNames: props => [
-//     'mdc-select',
-//     {
-//       'mdc-select--box': props.box
-//     }
-//   ],
-//   consumeProps: ['box'],
-//   defaultProps: {
-//     role: 'listbox'
-//   }
-// });
-
-// export const SelectSurface = simpleTag({
-//   displayName: 'SelectSurface',
-//   classNames: 'mdc-select__surface'
-// });
-
-// export const SelectSelectedText = simpleTag({
-//   displayName: 'SelectSelectedText',
-//   classNames: 'mdc-select__selected-text'
-// });
-
-// export const SelectBottomLine = simpleTag({
-//   displayName: 'SelectBottomLine',
-//   classNames: 'mdc-select__bottom-line'
-// });
-
-// export const SelectNativeControl = simpleTag({
-//   displayName: 'SelectNativeControl',
-//   tag: 'select',
-//   classNames: 'mdc-select__native-control'
-// });
+import { SimpleTagProps } from '../Base';
 
 export type SelectProps = {
   /** The value for a controlled select. */
@@ -58,6 +20,6 @@ export type SelectProps = {
   className?: string
 } & SimpleTagProps<HTMLDivElement>;
 
-export class Select extends MDCFoundation<SelectProps> {}
+export class Select extends React.Component<SelectProps> { }
 
 export default Select;

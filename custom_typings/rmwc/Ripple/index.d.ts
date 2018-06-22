@@ -1,4 +1,4 @@
-import { MDCFoundation } from '../Base';
+import * as React from 'react';
 
 export type RippleProps = {
   /** Makes the ripple unbounded */
@@ -11,6 +11,6 @@ export type RippleProps = {
   disabled?: boolean
 }
 
-export class Ripple extends MDCFoundation<RippleProps> { }
+export class Ripple extends React.Component<RippleProps> { }
 
 export default Ripple;
