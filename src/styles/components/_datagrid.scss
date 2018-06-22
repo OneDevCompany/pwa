@@ -35,6 +35,7 @@
 
     .odc-table {
       min-width: 800px;
+      font-family: $mdc-typography-font-family;
       border-spacing: 0;
       display: flex;
       flex-direction: column;
@@ -46,7 +47,6 @@
 
         .odc-th {
           padding: 0 24px;
-          font-family: roboto;
           font-weight: 500;
           font-size: .75rem;
           color: $odc-theme-text-secondary-on-background;
@@ -72,7 +72,11 @@
 
           .odc-td {
             padding: 0 24px;
+            font-size: .8125rem;
+            font-weight: 400;
+            color: $odc-theme-text-primary-on-background;
             border-bottom: $odc-divider-border;
+            box-sizing: border-box;
 
             display: flex;
             align-items: center;
