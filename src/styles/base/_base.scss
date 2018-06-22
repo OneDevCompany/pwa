@@ -1,5 +1,6 @@
 body {
   padding-left: $odc-side-tape-width-lg;
+  overflow-x: hidden;
 
   &:before {
     content: '';
@@ -18,4 +19,11 @@ body {
   @media (max-width: $mdc-toolbar-mobile-breakpoint) {
     padding-left: $odc-side-tape-width-sm;
   }
+}
+
+#__next {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
