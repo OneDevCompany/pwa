@@ -2,6 +2,11 @@
   color: white;
   background: transparent;
 
+  .material-icons {
+    color: white;
+    @include mdc-states-base-color(white);
+  }
+
   .mdc-toolbar__title {
     margin-left: 20px;
 
