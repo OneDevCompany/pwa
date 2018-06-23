@@ -12,8 +12,16 @@
   }
 
   .flex-horizontal {
+    width: calc(100% + #{$odc-datagrid-filters-drawer-width});
+    transition: mdc-animation-standard(width, $mdc-slidable-drawer-transition-close-time);
+
     display: flex;
     flex: 1;
+
+    &--open {
+      width: 100%;
+      transition: mdc-animation-standard(width, $mdc-slidable-drawer-transition-open-time);
+    }
 
     > div {
       height: unset !important;
@@ -111,6 +119,12 @@
         }
       }
     }
+  }
+
+  .odc-drawer {
+    width: $odc-datagrid-filters-drawer-width;
+    border: none;
+    border-left: $odc-divider-border;
   }
 
   .odc-pagination {
