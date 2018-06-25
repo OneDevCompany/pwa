@@ -15,7 +15,8 @@
   }
 
   .mdc-toolbar__icon {
-    color: $odc-theme-text-primary-on-background;
     @include mdc-states-base-color(black);
+    color: $odc-theme-text-primary-on-background;
+    user-select: none;
   }
 }
