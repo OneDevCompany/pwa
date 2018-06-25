@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Component } from 'react';
 import { Scrollbars } from 'tt-react-custom-scrollbars';
 import { Select, SquareButton } from 'components/ui';
-import { Drawer, DrawerContent } from 'rmwc/Drawer';
+import { Drawer } from 'rmwc/Drawer';
 import { Icon } from 'rmwc/Icon';
 import { Typography } from 'rmwc/Typography';
 import {
