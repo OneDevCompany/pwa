@@ -8,8 +8,8 @@
     flex-direction: column;
   }
 
-  .mdc-drawer {
-    &__drawer {
+  &__main-drawer {
+    .mdc-drawer__drawer {
       background: $odc-theme-gradient-bg;
     }
 
@@ -23,7 +23,7 @@
       }
     }
 
-    &__content {
+    .mdc-drawer__content {
       flex-grow: 0;
     }
 
