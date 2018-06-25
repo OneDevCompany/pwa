@@ -1,17 +1,19 @@
 .odc-select {
-  .mdc-button {
+
+  &__button {
     min-width: unset;
     padding-right: 0;
     margin-left: 8px;
-    color: $odc-theme-text-secondary-on-background;
+    color: $odc-theme-text-secondary-on-background !important;
 
     @include mdc-states-base-color(black);
+  }
 
-    &__icon {
-      width: 24px;
-      height: 24px;
-      margin: 0 0 0 .2rem;
-      font-size: 24px;
-    }
+  &__icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 0 0 .2rem;
+    color: inherit;
+    font-size: 24px;
   }
 }

@@ -55,11 +55,15 @@ export class Layout extends Component<LayoutProps, State> {
           temporary
           onClose={this.closeDrawer}
         >
-          <Toolbar>
+          <Toolbar className="odc-drawer__toolbar odc-toolbar">
             <ToolbarRow>
-              <ToolbarTitle>{appName}</ToolbarTitle>
+              <ToolbarTitle className="odc-drawer__app-name">{appName}</ToolbarTitle>
               <ToolbarSection alignEnd>
-                <ToolbarIcon use="arrow_back" onClick={this.closeDrawer} />
+                <ToolbarIcon
+                  className="odc-drawer__back-button"
+                  use="arrow_back"
+                  onClick={this.closeDrawer}
+                />
               </ToolbarSection>
             </ToolbarRow>
           </Toolbar>

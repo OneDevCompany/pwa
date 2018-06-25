@@ -24,7 +24,7 @@ export const SquareButton: SFC<SquareButtonProps> = ({
     <div
       className={classNames(
         'odc-square-button',
-        { 'odc-square-button__primary': primary },
+        { 'odc-square-button--primary': primary },
         className,
       )}
       {...otherProps}

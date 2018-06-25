@@ -32,7 +32,7 @@ export class Datagrid extends Component<{}, DatagridState> {
 
     return (
       <div className="odc-datagrid">
-        <Toolbar className="odc-datagrid__toolbar">
+        <Toolbar className="odc-datagrid__toolbar odc-toolbar">
           <ToolbarRow>
             <SquareButton
               noRipple
@@ -251,7 +251,7 @@ export class Datagrid extends Component<{}, DatagridState> {
             open
             permanent
           >
-            <Toolbar>
+            <Toolbar className="odc-toolbar">
               <ToolbarRow>
                 <ToolbarTitle>Filters</ToolbarTitle>
                 <ToolbarSection alignEnd>
@@ -268,7 +268,7 @@ export class Datagrid extends Component<{}, DatagridState> {
           </Drawer>
         </div>
 
-        <Toolbar className="odc-pagination">
+        <Toolbar className="odc-pagination odc-toolbar">
           <ToolbarRow>
             <ToolbarSection alignEnd>
               <div className="odc-pagination__rows">

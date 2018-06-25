@@ -1,17 +1,16 @@
-.odc-top-app-bar,
-.mdc-top-app-bar {
+.odc-top-app-bar {
   position: relative;
   color: $odc-theme-text-primary-on-background;
   background-color: white;
   border-bottom: $odc-divider-border;
 
-  .odc-square-button__navigation {
+  .odc-navigation-button {
     border-top: none;
     border-bottom: none;
     border-left: none;
   }
 
-  &__title {
+  .mdc-top-app-bar__title {
     padding-left: 0;
     margin-left: 12px;
     font-weight: 300;
