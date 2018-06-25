@@ -1,19 +1,9 @@
-.odc-drawer {
-  .odc-drawer__toolbar {
-    color: white;
-    background: transparent;
+.mdc-drawer {
+  .mdc-toolbar__title {
+    margin-left: 20px;
 
-    .odc-drawer__app-name {
-      margin-left: 20px;
-
-      @media (max-width: $mdc-toolbar-mobile-breakpoint) {
-        margin-left: 16px;
-      }
-    }
-
-    .odc-drawer__back-button {
-      color: white;
-      @include mdc-states-base-color(white);
+    @media (max-width: $mdc-toolbar-mobile-breakpoint) {
+      margin-left: 16px;
     }
   }
 }

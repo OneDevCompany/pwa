@@ -1,4 +1,4 @@
-.odc-top-app-bar {
+.mdc-top-app-bar {
   position: relative;
   color: $odc-theme-text-primary-on-background;
   background-color: white;
@@ -10,7 +10,7 @@
     border-left: none;
   }
 
-  .mdc-top-app-bar__title {
+  &__title {
     padding-left: 0;
     margin-left: 12px;
     font-weight: 300;

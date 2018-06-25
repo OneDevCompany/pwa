@@ -1,6 +1,5 @@
 .odc-select {
-
-  &__button {
+  .mdc-button {
     min-width: unset;
     padding-right: 0;
     margin-left: 8px;
@@ -9,7 +8,7 @@
     @include mdc-states-base-color(black);
   }
 
-  &__icon {
+  .mdc-button__icon {
     width: 24px;
     height: 24px;
     margin: 0 0 0 .2rem;

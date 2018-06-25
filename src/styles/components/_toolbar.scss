@@ -1,4 +1,4 @@
-.odc-toolbar {
+.mdc-toolbar {
   min-height: $odc-topappbar-height;
   color: $odc-theme-text-primary-on-background;
   background: white;
@@ -6,11 +6,11 @@
   box-sizing: content-box;
   flex: 0 0 $odc-topappbar-height;
 
-  .mdc-toolbar__row {
+  &__row {
     min-height: $odc-topappbar-height;
   }
 
-  .mdc-toolbar__title {
+  &__title {
     font-weight: 300;
   }
 

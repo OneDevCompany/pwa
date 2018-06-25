@@ -33,13 +33,9 @@ export class Select extends Component<SelectProps, SelectState> {
           {this.renderOptions()}
         </Menu>
 
-        <Button
-          className="odc-select__button"
-          dense
-          onClick={this.open}
-        >
+        <Button dense onClick={this.open}>
           <Typography use="caption">5</Typography>
-          <ButtonIcon className="odc-select__icon" use="arrow_drop_down" />
+          <ButtonIcon use="arrow_drop_down" />
         </Button>
       </MenuAnchor>
     );

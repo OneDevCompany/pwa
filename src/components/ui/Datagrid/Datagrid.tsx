@@ -32,7 +32,7 @@ export class Datagrid extends Component<{}, DatagridState> {
 
     return (
       <div className="odc-datagrid">
-        <Toolbar className="odc-datagrid__toolbar odc-toolbar">
+        <Toolbar>
           <ToolbarRow>
             <SquareButton
               noRipple
@@ -48,12 +48,12 @@ export class Datagrid extends Component<{}, DatagridState> {
 
         <div
           className={classNames(
-            'odc-datagrid__filters-wrapper',
-            { 'odc-datagrid__filters-wrapper--open': filtersDrawerOpen },
+            'odc-datagrid__filters-animation-wrapper',
+            { 'odc-datagrid__filters-animation-wrapper--open': filtersDrawerOpen },
           )}
         >
           <Scrollbars
-            className="odc-table-scrollbars odc-table-scrollbars--horizontal"
+            className="odc-table-scrollbars"
             autoHide
             universal
           >
@@ -251,7 +251,7 @@ export class Datagrid extends Component<{}, DatagridState> {
             open
             permanent
           >
-            <Toolbar className="odc-toolbar">
+            <Toolbar>
               <ToolbarRow>
                 <ToolbarTitle>Filters</ToolbarTitle>
                 <ToolbarSection alignEnd>
@@ -268,7 +268,7 @@ export class Datagrid extends Component<{}, DatagridState> {
           </Drawer>
         </div>
 
-        <Toolbar className="odc-pagination odc-toolbar">
+        <Toolbar className="odc-pagination">
           <ToolbarRow>
             <ToolbarSection alignEnd>
               <div className="odc-pagination__rows">
