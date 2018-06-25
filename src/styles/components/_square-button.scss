@@ -16,5 +16,9 @@
     &:hover {
       background: $odc-theme-primary;
     }
+
+    &:active {
+      background: linear-gradient(to right, #006dff, lighten(#006dff, 10%));
+    }
   }
 }
