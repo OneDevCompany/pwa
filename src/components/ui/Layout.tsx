@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component, ReactNode } from 'react';
-import { TopAppBar, TopAppBarNavigationButton } from 'components/ui';
+import { SideTape, TopAppBar, TopAppBarNavigationButton } from 'components/ui';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
 import {
   TopAppBarRow,
@@ -35,40 +35,47 @@ export class Layout extends Component<LayoutProps, State> {
   };
 
   render() {
-    const { appName, drawerContent } = this.props;
+    const { appName, children, drawerContent } = this.props;
     const { drawerOpen } = this.state;
 
     return (
       <div className="odc-layout">
-        <TopAppBar>
-          <TopAppBarRow>
-            <TopAppBarNavigationButton onClick={this.openDrawer} />
-            <TopAppBarSection alignStart>
-              <TopAppBarTitle>{appName}</TopAppBarTitle>
-            </TopAppBarSection>
-          </TopAppBarRow>
-        </TopAppBar>
+        <SideTape>
+          <div className="odc-layout__container">
+            <TopAppBar>
+              <TopAppBarRow>
+                <TopAppBarNavigationButton onClick={this.openDrawer} />
+                <TopAppBarSection alignStart>
+                  <TopAppBarTitle>{appName}</TopAppBarTitle>
+                </TopAppBarSection>
+              </TopAppBarRow>
+            </TopAppBar>
 
-        <Drawer
-          open={drawerOpen}
-          temporary
-          onClose={this.closeDrawer}
-        >
-          <Toolbar>
-            <ToolbarRow>
-              <ToolbarTitle>{appName}</ToolbarTitle>
-              <ToolbarSection alignEnd>
-                <ToolbarIcon use="arrow_back" onClick={this.closeDrawer} />
-              </ToolbarSection>
-            </ToolbarRow>
-          </Toolbar>
+            {children}
+          </div>
 
-          {!!drawerContent && (
-            <DrawerContent onClick={this.closeDrawer}>
-              {drawerContent}
-            </DrawerContent>
-          )}
-        </Drawer>
+          <Drawer
+            className="odc-layout__main-drawer"
+            open={drawerOpen}
+            temporary
+            onClose={this.closeDrawer}
+          >
+            <Toolbar>
+              <ToolbarRow>
+                <ToolbarTitle>{appName}</ToolbarTitle>
+                <ToolbarSection alignEnd>
+                  <ToolbarIcon use="arrow_back" onClick={this.closeDrawer} />
+                </ToolbarSection>
+              </ToolbarRow>
+            </Toolbar>
+
+            {!!drawerContent && (
+              <DrawerContent onClick={this.closeDrawer}>
+                {drawerContent}
+              </DrawerContent>
+            )}
+          </Drawer>
+        </SideTape>
       </div>
     );
   }

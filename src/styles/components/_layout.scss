@@ -2,6 +2,12 @@
 @import 'top-app-bar';
 
 .odc-layout {
+  &__container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
   .mdc-drawer {
     &__drawer {
       background: $odc-theme-gradient-bg;

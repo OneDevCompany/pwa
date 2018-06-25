@@ -23,8 +23,9 @@ export default class MyApp extends App {
         <Layout
           appName="App Name"
           drawerContent={<DrawerContent />}
-        />
-        <Component {...pageProps} />
+        >
+          <Component {...pageProps} />
+        </Layout>
       </Container>
     );
   }
