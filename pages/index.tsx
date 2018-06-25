@@ -17,6 +17,7 @@ console.warn('TODO', 'pagination: decrease padding in items of "Rows per page" <
 console.warn('TODO', 'create type for "value" and "options" props in Select component');
 console.warn('TODO', 'vertical scrollbars not appear when mobile vision');
 console.warn('TODO', 'set all IconButtons and Buttons as "user-select: none" in css');
+console.warn('TODO', 'extract all components with .odc-* class');
 console.warn('TODO', 'create a issue at jamesmfriedman/rmwc: TopAppBar:fixed not working. TopAppBar is by default fixed. Set it to fixed={false} doesnt work');
 
 export default () => (
