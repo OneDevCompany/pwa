@@ -21,4 +21,10 @@
       background: linear-gradient(to right, #006dff, lighten(#006dff, 10%));
     }
   }
+
+  &--only-right-border {
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+  }
 }

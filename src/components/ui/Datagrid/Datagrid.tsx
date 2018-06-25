@@ -36,6 +36,7 @@ export class Datagrid extends Component<{}, DatagridState> {
           <ToolbarRow>
             <SquareButton
               noRipple
+              onlyRightBorder
               primary
               use="add"
             />

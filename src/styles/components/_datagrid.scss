@@ -3,14 +3,6 @@
   display: flex;
   flex-direction: column;
 
-  .mdc-toolbar {
-    .odc-square-button {
-      border-top: none;
-      border-bottom: none;
-      border-left: none;
-    }
-  }
-
   &__filters-animation-wrapper {
     width: calc(100% + #{$odc-datagrid-filters-drawer-width});
     transition: mdc-animation-standard(width, $mdc-slidable-drawer-transition-close-time);

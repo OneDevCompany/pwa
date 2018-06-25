@@ -6,6 +6,7 @@ import { Ripple } from 'rmwc/Ripple';
 
 type SquareButtonProps = {
   noRipple?: boolean;
+  onlyRightBorder?: boolean;
   primary?: boolean;
   ripplePrimary?: boolean;
   use: ReactNode;
@@ -15,6 +16,7 @@ export const SquareButton: SFC<SquareButtonProps> = ({
   className,
   disabled,
   noRipple,
+  onlyRightBorder,
   primary,
   ripplePrimary,
   use,
@@ -25,6 +27,7 @@ export const SquareButton: SFC<SquareButtonProps> = ({
       className={classNames(
         'odc-square-button',
         { 'odc-square-button--primary': primary },
+        { 'odc-square-button--only-right-border': onlyRightBorder },
         className,
       )}
       {...otherProps}
