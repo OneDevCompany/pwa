@@ -32,7 +32,7 @@ export class Datagrid extends Component<{}, DatagridState> {
 
     return (
       <div className="odc-datagrid">
-        <Toolbar>
+        <Toolbar className="odc-datagrid__toolbar">
           <ToolbarRow>
             <SquareButton
               noRipple
@@ -48,37 +48,38 @@ export class Datagrid extends Component<{}, DatagridState> {
 
         <div
           className={classNames(
-            'flex-horizontal',
-            { 'flex-horizontal--open': filtersDrawerOpen },
-          )}>
+            'odc-datagrid__filters-wrapper',
+            { 'odc-datagrid__filters-wrapper--open': filtersDrawerOpen },
+          )}
+        >
           <Scrollbars
-            className="scrollbars"
+            className="odc-table-scrollbars odc-table-scrollbars--horizontal"
             autoHide
             universal
           >
             <div className="odc-table-wrapper">
               <div className="odc-table">
-                <div className="odc-thead">
-                  <div className="odc-tr">
-                    <div className="odc-th">
-                      <div className="content">
-                        <span className="text">Name</span>
+                <div className="odc-table__thead">
+                  <div className="odc-table__tr">
+                    <div className="odc-table__th">
+                      <div className="odc-table__content">
+                        <span className="odc-table__text">Name</span>
                       </div>
                     </div>
-                    <div className="odc-th odc-th--active">
-                      <div className="content">
-                        <Icon use="arrow_upward" />
-                        <span className="text">Email</span>
+                    <div className="odc-table__th odc-table__th--active">
+                      <div className="odc-table__content">
+                        <Icon className="odc-table__icon" use="arrow_upward" />
+                        <span className="odc-table__text">Email</span>
                       </div>
                     </div>
-                    <div className="odc-th">
-                      <div className="content">
-                        <span className="text">Profession</span>
+                    <div className="odc-table__th">
+                      <div className="odc-table__content">
+                        <span className="odc-table__text">Profession</span>
                       </div>
                     </div>
-                    <div className="odc-th">
-                      <div className="content">
-                        <span className="text">Age</span>
+                    <div className="odc-table__th">
+                      <div className="odc-table__content">
+                        <span className="odc-table__text">Age</span>
                       </div>
                     </div>
                   </div>
@@ -87,164 +88,157 @@ export class Datagrid extends Component<{}, DatagridState> {
                 <Scrollbars
                   autoHide
                   universal
-                  style={{ overflowX: 'hidden', flex: 1 }}
                 >
-                  <div className="odc-tbody">
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                  <div className="odc-table__tbody">
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
-                    </div>
-                    <div className="odc-tr">
-                      <div className="odc-td">Danilo Barros</div>
-                      <div className="odc-td">danilobarros@email.com</div>
-                      <div className="odc-td">Web Developer</div>
-                      <div className="odc-td">33</div>
+                    <div className="odc-table__tr">
+                      <div className="odc-table__td">Danilo Barros</div>
+                      <div className="odc-table__td">danilobarros@email.com</div>
+                      <div className="odc-table__td">Web Developer</div>
+                      <div className="odc-table__td">33</div>
                     </div>
                   </div>
                 </Scrollbars>
@@ -253,10 +247,9 @@ export class Datagrid extends Component<{}, DatagridState> {
           </Scrollbars>
 
           <Drawer
-            className="odc-drawer"
+            className="odc-datagrid__filters"
             open
             permanent
-          // onClose={this.closeDrawer}
           >
             <Toolbar>
               <ToolbarRow>
@@ -268,30 +261,30 @@ export class Datagrid extends Component<{}, DatagridState> {
             </Toolbar>
 
             {/* {!!drawerContent && (
-        <DrawerContent onClick={this.closeDrawer}>
-          {drawerContent}
-        </DrawerContent>
-      )} */}
+              <DrawerContent onClick={this.closeDrawer}>
+                {drawerContent}
+              </DrawerContent>
+            )} */}
           </Drawer>
         </div>
 
         <Toolbar className="odc-pagination">
           <ToolbarRow>
             <ToolbarSection alignEnd>
-              <div className="rows-per-page">
+              <div className="odc-pagination__rows">
                 <Typography use="caption">Rows per page:</Typography>
                 <Select options={['5', '10', '25']} />
               </div>
 
-              <div className="items-counter">
-                <Typography className="from" use="caption">1</Typography>
+              <div className="odc-pagination__counter">
+                <Typography className="odc-pagination__from" use="caption">1</Typography>
                 <Typography use="caption">{' - '}</Typography>
-                <Typography className="to" use="caption">15</Typography>
+                <Typography className="odc-pagination__to" use="caption">15</Typography>
                 <Typography use="caption">{' of '}</Typography>
-                <Typography className="total" use="caption">25</Typography>
+                <Typography className="odc-pagination__total" use="caption">25</Typography>
               </div>
 
-              <div className="actions">
+              <div className="odc-pagination__actions">
                 <ToolbarIcon use="chevron_left" />
                 <ToolbarIcon use="chevron_right" />
               </div>

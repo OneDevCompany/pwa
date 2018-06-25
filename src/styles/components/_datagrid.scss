@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
 
-  .mdc-toolbar {
+  &__toolbar {
     .odc-square-button {
       border-top: none;
       border-bottom: none;
@@ -11,7 +11,7 @@
     }
   }
 
-  .flex-horizontal {
+  &__filters-wrapper {
     width: calc(100% + #{$odc-datagrid-filters-drawer-width});
     transition: mdc-animation-standard(width, $mdc-slidable-drawer-transition-close-time);
 
@@ -22,8 +22,10 @@
       width: 100%;
       transition: mdc-animation-standard(width, $mdc-slidable-drawer-transition-open-time);
     }
+  }
 
-    > div {
+  .odc-table-scrollbars {
+    &--horizontal {
       height: unset !important;
       display: flex;
 
@@ -39,89 +41,94 @@
         }
       }
     }
+
+    // &--vertical {
+    //   overflow-x: hidden;
+    //   flex: 1;
+    // }
   }
 
   .odc-table-wrapper {
     display: flex;
     flex-grow: 1;
+  }
 
-    .odc-table {
-      min-width: 800px;
-      font-family: $mdc-typography-font-family;
-      border-spacing: 0;
+  .odc-table {
+    min-width: 800px;
+    font-family: $mdc-typography-font-family;
+    border-spacing: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &__thead .odc-table__tr {
+      height: $odc-topappbar-height;
+      display: flex;
+    }
+
+    &__th {
+      padding: 0 24px;
+      font-weight: 500;
+      font-size: .75rem;
+      color: $odc-theme-text-secondary-on-background;
+      box-sizing: border-box;
+      text-align: left;
+
+      display: flex;
+      align-items: center;
+      flex: 1 0 200px;
+
+      &--active .odc-table__content,
+      .odc-table__content:hover {
+        color: $odc-theme-text-primary-on-background;
+      }
+
+      .odc-table__content {
+        cursor: pointer;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .odc-table__icon {
+        font-size: 16px;
+        margin-right: .3rem;
+        margin-left: -.2rem;
+      }
+    }
+
+    &__tbody {
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
 
-      .odc-thead .odc-tr {
-        height: $odc-topappbar-height;
+      .odc-table__tr {
+        min-height: 49px;
         display: flex;
 
-        .odc-th {
+        .odc-table__td {
           padding: 0 24px;
-          font-weight: 500;
-          font-size: .75rem;
-          color: $odc-theme-text-secondary-on-background;
+          font-size: .8125rem;
+          font-weight: 400;
+          color: $odc-theme-text-primary-on-background;
           box-sizing: border-box;
-          text-align: left;
 
           display: flex;
           align-items: center;
           flex: 1 0 200px;
-
-          &--active .content,
-          .content:hover {
-            color: $odc-theme-text-primary-on-background;
-          }
-
-          .content {
-            cursor: pointer;
-            display: flex;
-            align-items: flex-end;
-
-            .material-icons {
-              font-size: 16px;
-              margin-right: .3rem;
-              margin-left: -.2rem;
-            }
-          }
         }
       }
+    }
 
-      .odc-tbody {
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
-        overflow-x: hidden;
-
-        .odc-tr {
-          min-height: 49px;
-          display: flex;
-
-          .odc-td {
-            padding: 0 24px;
-            font-size: .8125rem;
-            font-weight: 400;
-            color: $odc-theme-text-primary-on-background;
-            box-sizing: border-box;
-
-            display: flex;
-            align-items: center;
-            flex: 1 0 200px;
-          }
-        }
-      }
-
-      .odc-thead,
-      .odc-tbody {
-        .odc-tr {
-          border-bottom: $odc-divider-border;
-        }
+    &__thead,
+    &__tbody {
+      .odc-table__tr {
+        border-bottom: $odc-divider-border;
       }
     }
   }
 
-  .odc-drawer {
+  &__filters {
     width: $odc-datagrid-filters-drawer-width;
     border: none;
     border-left: $odc-divider-border;
@@ -135,18 +142,18 @@
       align-items: center;
     }
 
-    .rows-per-page {
+    &__rows {
       color: $odc-theme-text-secondary-on-background;
       display: flex;
       align-items: center;
     }
 
-    .items-counter {
+    &__counter {
       margin-left: 20px;
       color: $odc-theme-text-secondary-on-background;
     }
 
-    .actions {
+    &__actions {
       margin-left: 20px;
       display: flex;
     }
