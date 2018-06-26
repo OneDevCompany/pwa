@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Component, ReactNode } from 'react';
-import { SideTape, TopAppBar, TopAppBarNavigationButton } from 'components/ui';
+import { TopAppBar, TopAppBarNavigationButton } from 'components/ui';
 import { Drawer, DrawerContent } from 'rmwc/Drawer';
 import {
   TopAppBarRow,
