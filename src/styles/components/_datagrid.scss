@@ -6,6 +6,7 @@
   &__animation-wrapper {
     width: calc(100% + #{$odc-datagrid-filters-drawer-width});
     transition: mdc-animation-standard(width, $mdc-slidable-drawer-transition-close-time);
+    will-change: width;
 
     display: flex;
     flex: 1;
