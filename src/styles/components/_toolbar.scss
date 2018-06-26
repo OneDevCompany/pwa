@@ -10,6 +10,10 @@
     min-height: $odc-topappbar-height;
   }
 
+  &__section--align-end {
+    padding: 4px 4px 4px 0;
+  }
+
   &__title {
     font-weight: 300;
   }
