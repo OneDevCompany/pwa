@@ -1,0 +1,24 @@
+.odc-datagrid .odc-pagination {
+  border: none;
+  border-top: $odc-divider-border;
+
+  .mdc-toolbar__section--align-end {
+    align-items: center;
+  }
+
+  &__rows {
+    color: $odc-theme-text-secondary-on-background;
+    display: flex;
+    align-items: center;
+  }
+
+  &__counter {
+    margin-left: 20px;
+    color: $odc-theme-text-secondary-on-background;
+  }
+
+  &__actions {
+    margin-left: 20px;
+    display: flex;
+  }
+}

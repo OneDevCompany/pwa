@@ -1,0 +1,10 @@
+.odc-datagrid {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+@import 'animation-wrapper';
+@import 'filters';
+@import 'pagination';
+@import 'table';

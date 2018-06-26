@@ -1,0 +1,9 @@
+.odc-datagrid__filters {
+  width: $odc-datagrid-filters-drawer-width;
+  border: none;
+  border-left: $odc-divider-border;
+
+  .mdc-toolbar__title {
+    font-size: 1rem;
+  }
+}
