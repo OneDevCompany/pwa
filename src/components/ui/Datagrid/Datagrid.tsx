@@ -2,18 +2,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Component } from 'react';
 import { Scrollbars } from 'tt-react-custom-scrollbars';
-import { SquareButton } from 'components/ui';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
-import { Drawer } from 'rmwc/Drawer';
+import { DatagridToolbar } from './DatagridToolbar';
 import { Icon } from 'rmwc/Icon';
-import {
-  Toolbar,
-  ToolbarIcon,
-  ToolbarRow,
-  ToolbarSection,
-  ToolbarTitle,
-} from 'rmwc/Toolbar';
 
 type DatagridState = {
   filtersDrawerOpen: boolean;
@@ -33,20 +25,7 @@ export class Datagrid extends Component<{}, DatagridState> {
 
     return (
       <div className="odc-datagrid">
-        <Toolbar>
-          <ToolbarRow>
-            <SquareButton
-              noRipple
-              onlyRightBorder
-              primary
-              use="add"
-            />
-
-            <ToolbarSection alignEnd>
-              <ToolbarIcon use="filter_list" onClick={this.toggleFilters} />
-            </ToolbarSection>
-          </ToolbarRow>
-        </Toolbar>
+        <DatagridToolbar onClickFilterButton={this.toggleFilters} />
 
         <div
           className={classNames(
