@@ -18,6 +18,7 @@ import {
 export type LayoutProps = {
   appName?: string,
   drawerContent?: ReactNode,
+  topAppBarRightElements?: ReactNode;
 };
 
 type State = {
@@ -28,6 +29,7 @@ export class Layout extends Component<LayoutProps, State> {
   static defaultProps: Partial<LayoutProps> = {
     appName: '',
     drawerContent: undefined,
+    topAppBarRightElements: undefined,
   };
 
   state: State = {
@@ -35,7 +37,7 @@ export class Layout extends Component<LayoutProps, State> {
   };
 
   render() {
-    const { appName, children, drawerContent } = this.props;
+    const { appName, children, drawerContent, topAppBarRightElements } = this.props;
     const { drawerOpen } = this.state;
 
     return (
@@ -48,6 +50,9 @@ export class Layout extends Component<LayoutProps, State> {
                 <TopAppBarSection alignStart>
                   <TopAppBarTitle>{appName}</TopAppBarTitle>
                 </TopAppBarSection>
+                {!!topAppBarRightElements && (
+                  <TopAppBarSection alignEnd>{topAppBarRightElements}</TopAppBarSection>
+                )}
               </TopAppBarRow>
             </TopAppBar>
 
