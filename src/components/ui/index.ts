@@ -1,4 +1,3 @@
-export * from './SideTape';
 export * from './Datagrid';
 export * from './Layout';
 export * from './Select';

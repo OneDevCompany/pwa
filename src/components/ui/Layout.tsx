@@ -42,45 +42,43 @@ export class Layout extends Component<LayoutProps, State> {
 
     return (
       <div className="odc-layout">
-        <SideTape>
-          <div className="odc-layout__container">
-            <TopAppBar>
-              <TopAppBarRow>
-                <TopAppBarNavigationButton onClick={this.openDrawer} />
-                <TopAppBarSection alignStart>
-                  <TopAppBarTitle>{appName}</TopAppBarTitle>
-                </TopAppBarSection>
-                {!!topAppBarRightElements && (
-                  <TopAppBarSection alignEnd>{topAppBarRightElements}</TopAppBarSection>
-                )}
-              </TopAppBarRow>
-            </TopAppBar>
+        <div className="odc-layout__container">
+          <TopAppBar>
+            <TopAppBarRow>
+              <TopAppBarNavigationButton onClick={this.openDrawer} />
+              <TopAppBarSection alignStart>
+                <TopAppBarTitle>{appName}</TopAppBarTitle>
+              </TopAppBarSection>
+              {!!topAppBarRightElements && (
+                <TopAppBarSection alignEnd>{topAppBarRightElements}</TopAppBarSection>
+              )}
+            </TopAppBarRow>
+          </TopAppBar>
 
-            {children}
-          </div>
+          {children}
+        </div>
 
-          <Drawer
-            className="odc-layout__main-drawer"
-            open={drawerOpen}
-            temporary
-            onClose={this.closeDrawer}
-          >
-            <Toolbar>
-              <ToolbarRow>
-                <ToolbarTitle>{appName}</ToolbarTitle>
-                <ToolbarSection alignEnd>
-                  <ToolbarIcon use="arrow_back" onClick={this.closeDrawer} />
-                </ToolbarSection>
-              </ToolbarRow>
-            </Toolbar>
+        <Drawer
+          className="odc-layout__main-drawer"
+          open={drawerOpen}
+          temporary
+          onClose={this.closeDrawer}
+        >
+          <Toolbar>
+            <ToolbarRow>
+              <ToolbarTitle>{appName}</ToolbarTitle>
+              <ToolbarSection alignEnd>
+                <ToolbarIcon use="arrow_back" onClick={this.closeDrawer} />
+              </ToolbarSection>
+            </ToolbarRow>
+          </Toolbar>
 
-            {!!drawerContent && (
-              <DrawerContent onClick={this.closeDrawer}>
-                {drawerContent}
-              </DrawerContent>
-            )}
-          </Drawer>
-        </SideTape>
+          {!!drawerContent && (
+            <DrawerContent onClick={this.closeDrawer}>
+              {drawerContent}
+            </DrawerContent>
+          )}
+        </Drawer>
       </div>
     );
   }
