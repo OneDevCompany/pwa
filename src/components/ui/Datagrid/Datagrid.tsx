@@ -228,7 +228,7 @@ export class Datagrid extends Component<{}, DatagridState> {
             </div>
           </Scrollbars>
 
-          <DatagridFilters onClose={this.toggleFilters} />
+          <DatagridFilters onClickCloseButton={this.toggleFilters} />
         </div>
 
         <DatagridPagination />

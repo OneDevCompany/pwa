@@ -10,10 +10,10 @@ import {
 } from 'rmwc/Toolbar';
 
 type DatagridFiltersProps = {
-  onClose?: () => void;
+  onClickCloseButton?: () => void;
 };
 
-export const DatagridFilters: SFC<DatagridFiltersProps> = ({ onClose }) => (
+export const DatagridFilters: SFC<DatagridFiltersProps> = ({ onClickCloseButton }) => (
   <Drawer
     className="odc-datagrid__filters"
     open
@@ -23,7 +23,7 @@ export const DatagridFilters: SFC<DatagridFiltersProps> = ({ onClose }) => (
       <ToolbarRow>
         <ToolbarTitle>Filters</ToolbarTitle>
         <ToolbarSection alignEnd>
-          <ToolbarIcon use="close" onClick={onClose} />
+          <ToolbarIcon use="close" onClick={onClickCloseButton} />
         </ToolbarSection>
       </ToolbarRow>
     </Toolbar>
@@ -37,5 +37,5 @@ export const DatagridFilters: SFC<DatagridFiltersProps> = ({ onClose }) => (
 );
 
 DatagridFilters.defaultProps = {
-  onClose: () => null,
+  onClickCloseButton: () => null,
 };
