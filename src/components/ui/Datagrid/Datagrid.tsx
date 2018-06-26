@@ -89,7 +89,7 @@ export class Datagrid extends Component<{}, DatagridState> {
                 <Scrollbars
                   autoHide
                   universal
-                  style={{ minWidth: 800 - 100}}
+                  style={{ minWidth: 800 - 100 }}
                 >
                   <div className="odc-table__tbody">
                     <div className="odc-table__tr">
