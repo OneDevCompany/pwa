@@ -1,7 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Component } from 'react';
 import { Scrollbars } from 'tt-react-custom-scrollbars';
+import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
 import { DatagridToolbar } from './DatagridToolbar';
@@ -27,12 +27,7 @@ export class Datagrid extends Component<{}, DatagridState> {
       <div className="odc-datagrid">
         <DatagridToolbar onClickFilterButton={this.toggleFilters} />
 
-        <div
-          className={classNames(
-            'odc-datagrid__animation-wrapper',
-            { 'odc-datagrid__animation-wrapper--open': filtersDrawerOpen },
-          )}
-        >
+        <DatagridAnimationWrapper open={filtersDrawerOpen}>
           <Scrollbars
             className="odc-table-scrollbars"
             autoHide
@@ -229,7 +224,7 @@ export class Datagrid extends Component<{}, DatagridState> {
           </Scrollbars>
 
           <DatagridFilters onClickCloseButton={this.toggleFilters} />
-        </div>
+        </DatagridAnimationWrapper>
 
         <DatagridPagination />
       </div>
