@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
 
-  &__filters-animation-wrapper {
+  &__animation-wrapper {
     width: calc(100% + #{$odc-datagrid-filters-drawer-width});
     transition: mdc-animation-standard(width, $mdc-slidable-drawer-transition-close-time);
 
@@ -20,7 +20,7 @@
     height: unset !important;
     display: flex;
 
-    > div {
+    > div:first-child {
       display: flex;
 
       > div {
@@ -39,7 +39,6 @@
   }
 
   .odc-table {
-    min-width: 800px;
     font-family: $mdc-typography-font-family;
     border-spacing: 0;
     display: flex;
@@ -61,7 +60,6 @@
 
       display: flex;
       align-items: center;
-      flex: 1 0 200px;
 
       &--active .odc-table__content,
       .odc-table__content:hover {
@@ -101,7 +99,6 @@
 
         display: flex;
         align-items: center;
-        flex: 1 0 200px;
       }
     }
 
