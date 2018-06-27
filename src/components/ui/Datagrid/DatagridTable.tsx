@@ -17,7 +17,7 @@ export const DatagridTable: SFC<{}> = () => (
           <TableRow>
             <TableCell head>Name</TableCell>
             <TableCell head sortOrder="asc" active>Email</TableCell>
-            <TableCell head noSort>Profession</TableCell>
+            <TableCell head>Profession</TableCell>
             <TableCell head>Age</TableCell>
           </TableRow>
         </TableHead>
