@@ -27,52 +27,57 @@
     flex-grow: 1;
   }
 
-  &__thead .odc-table__tr {
-    height: $odc-topappbar-height;
-    display: flex;
-  }
-
-  &__th {
-    padding: 0 24px;
-    font-weight: 500;
-    font-size: .75rem;
-    color: $odc-theme-text-secondary-on-background;
-    box-sizing: border-box;
-    text-align: left;
-
-    display: flex;
-    align-items: center;
-
-    &--active .odc-table__content,
-    .odc-table__content:hover {
-      color: $odc-theme-text-primary-on-background;
-    }
-
-    .odc-table__content {
-      cursor: pointer;
+  &__head {
+    .odc-table__row {
+      height: $odc-topappbar-height;
       display: flex;
-      align-items: flex-end;
     }
 
-    .odc-table__icon {
-      font-size: 16px;
-      margin-right: .3rem;
-      margin-left: -.2rem;
+    .odc-table__cell {
+      padding: 0 24px;
+      font-weight: 500;
+      font-size: .75rem;
+      color: $odc-theme-text-secondary-on-background;
+      box-sizing: border-box;
+      text-align: left;
+
+      display: flex;
+      align-items: center;
+
+      .odc-table__content--active,
+      .odc-table__content--sortable:hover {
+        color: $odc-theme-text-primary-on-background;
+      }
+
+      .odc-table__content--sortable:hover {
+        cursor: pointer;
+      }
+
+      .odc-table__content {
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .odc-table__icon {
+        font-size: 16px;
+        margin-right: .3rem;
+        margin-left: -.2rem;
+      }
     }
   }
 
-  &__tbody {
+  &__body {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
 
-    .odc-table__tr {
+    .odc-table__row {
       min-height: 49px;
       display: flex;
     }
 
-    .odc-table__td {
+    .odc-table__cell {
       padding: 0 24px;
       font-size: .8125rem;
       font-weight: 400;
@@ -84,10 +89,15 @@
     }
   }
 
-  &__thead,
-  &__tbody {
-    .odc-table__tr {
+  &__head,
+  &__body {
+    .odc-table__row {
       border-bottom: $odc-divider-border;
     }
+  }
+
+  &__cell {
+    flex-grow: 1;
+    flex-shrink: 0;
   }
 }
