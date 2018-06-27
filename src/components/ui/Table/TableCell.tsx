@@ -6,7 +6,8 @@ import { Icon } from 'rmwc/Icon';
 type TableCellProps = {
   active?: boolean;
   head?: boolean;
-  sortable?: boolean | 'asc' | 'desc';
+  noSort?: boolean;
+  sortOrder?: 'asc' | 'desc';
 } & HTMLProps<HTMLDivElement>;
 
 export const TableCell: SFC<TableCellProps> = ({
@@ -14,7 +15,8 @@ export const TableCell: SFC<TableCellProps> = ({
   children,
   className,
   head,
-  sortable,
+  noSort,
+  sortOrder,
   style,
   width,
   ...otherProps }) => (
@@ -29,13 +31,13 @@ export const TableCell: SFC<TableCellProps> = ({
             'odc-table__content',
             {
               'odc-table__content--active': active,
-              'odc-table__content--sortable': !!sortable,
-              'odc-table__content--sortable-asc': sortable === 'asc',
-              'odc-table__content--sortable-desc': sortable === 'desc',
+              'odc-table__content--no-sort': !!noSort,
+              'odc-table__content--sort-asc': sortOrder === 'asc',
+              'odc-table__content--sort-desc': sortOrder === 'desc',
             },
           )}
         >
-          {!!sortable && <Icon className="odc-table__icon" use="arrow_upward" />}
+          {!!sortOrder && <Icon className="odc-table__icon" use="arrow_upward" />}
           <span className="odc-table__text">{children}</span>
         </div>
       )}
@@ -45,6 +47,7 @@ export const TableCell: SFC<TableCellProps> = ({
 TableCell.defaultProps = {
   active: false,
   head: false,
-  sortable: false,
+  noSort: false,
+  sortOrder: null,
   width: 200,
 };

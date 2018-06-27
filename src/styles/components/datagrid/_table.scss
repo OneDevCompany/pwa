@@ -44,18 +44,36 @@
       display: flex;
       align-items: center;
 
-      .odc-table__content--active,
-      .odc-table__content--sortable:hover {
-        color: $odc-theme-text-primary-on-background;
-      }
-
-      .odc-table__content--sortable:hover {
-        cursor: pointer;
-      }
-
       .odc-table__content {
+        cursor: pointer;
         display: flex;
         align-items: flex-end;
+
+        .odc-table__icon {
+          opacity: 0;
+          transition:
+            mdc-animation-standard(transform, $mdc-slidable-drawer-transition-open-time),
+            mdc-animation-standard(opacity, $mdc-slidable-drawer-transition-open-time);
+        }
+
+        &:hover,
+        &--active {
+          color: $odc-theme-text-primary-on-background;
+
+          .odc-table__icon {
+            opacity: 1;
+          }
+        }
+
+        &--sort-desc .odc-table__icon {
+          transform: rotateZ(-180deg);
+        }
+
+        &--no-sort,
+        &--no-sort:hover {
+          color: $odc-theme-text-secondary-on-background;
+          cursor: unset;
+        }
       }
 
       .odc-table__icon {

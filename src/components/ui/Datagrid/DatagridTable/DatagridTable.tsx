@@ -15,10 +15,10 @@ export const DatagridTable: SFC<{}> = () => (
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell head sortable>Name</TableCell>
-            <TableCell head sortable="asc" active>Email</TableCell>
-            <TableCell head sortable>Profession</TableCell>
-            <TableCell head sortable>Age</TableCell>
+            <TableCell head>Name</TableCell>
+            <TableCell head sortOrder="asc" active>Email</TableCell>
+            <TableCell head noSort>Profession</TableCell>
+            <TableCell head>Age</TableCell>
           </TableRow>
         </TableHead>
 
