@@ -4,6 +4,20 @@ import { AppComponentContext, Container } from 'next/app';
 import { DrawerContent } from 'components/commons';
 import { Layout } from 'components/ui';
 
+console.warn('TODO', 'try to move import(styles) to _app.tsx because application can start in a different page rather than "/"');
+console.warn('TODO', 'refactor TableCell. Maybe create a TableCellHeader and TableCellBody?');
+console.warn('TODO', 'pagination: decrease padding in items of "Rows per page" <Select>');
+console.warn('TODO', 'create type for "value" and "options" props in Select component');
+console.warn('BUG', 'last column is partially hidden when mobile size');
+console.warn('TODO', 'add tooltips in buttons and table head');
+console.warn('TODO', 'set font-weight: 300 as default for some typographies');
+console.warn('TODO', 'split CSS code');
+console.warn('TODO', 'check performance at components');
+console.warn('TODO', 'create a issue at jamesmfriedman/rmwc: TopAppBar:fixed not working. TopAppBar is by default fixed. Set it to fixed={false} doesnt work');
+
+console.warn('EXTRA', 'create a vscode extension jsx utils');
+console.warn('EXTRA', 'refactor all styles to use css grid');
+
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }: AppComponentContext) {
     let pageProps = {};
