@@ -4,7 +4,8 @@ import { AppComponentContext, Container } from 'next/app';
 import { DrawerContent } from 'components/commons';
 import { Layout } from 'components/ui';
 
-console.warn('TODO', 'try to move import(styles) to _app.tsx because application can start in a different page rather than "/"');
+import '../src/styles/index.scss';
+
 console.warn('TODO', 'refactor TableCell. Maybe create a TableCellHeader and TableCellBody?');
 console.warn('TODO', 'pagination: decrease padding in items of "Rows per page" <Select>');
 console.warn('TODO', 'create type for "value" and "options" props in Select component');
