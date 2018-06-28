@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Component } from 'react';
+import { Component, ReactNode } from 'react';
 import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
@@ -9,6 +9,7 @@ import { DatagridToolbar } from './DatagridToolbar';
 
 type DatagridProps = {
   noFilters?: boolean;
+  mainButton?: ReactNode;
 };
 
 type DatagridState = {
@@ -18,6 +19,7 @@ type DatagridState = {
 export class Datagrid extends Component<DatagridProps, DatagridState> {
   static defaultProps: DatagridProps = {
     noFilters: false,
+    mainButton: null,
   };
 
   constructor(props: any) {
@@ -29,12 +31,13 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
   }
 
   render() {
-    const { noFilters } = this.props;
+    const { mainButton, noFilters } = this.props;
     const { filtersDrawerOpen } = this.state;
 
     return (
       <div className="odc-datagrid">
         <DatagridToolbar
+          mainButton={mainButton}
           noToggleFiltersButton={noFilters}
           onClickFilterButton={this.toggleFilters}
         />

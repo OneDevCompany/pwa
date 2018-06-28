@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { SFC } from 'react';
-import { SquareButton } from 'components/ui';
+import { ReactNode, SFC } from 'react';
 import {
   Toolbar,
   ToolbarIcon,
@@ -9,19 +8,19 @@ import {
 } from 'rmwc/Toolbar';
 
 type DatagridToolbarProps = {
+  mainButton?: ReactNode;
   noToggleFiltersButton?: boolean;
   onClickFilterButton?: () => void;
 };
 
-export const DatagridToolbar: SFC<DatagridToolbarProps> = ({ noToggleFiltersButton, onClickFilterButton }) => (
+export const DatagridToolbar: SFC<DatagridToolbarProps> = ({
+  mainButton,
+  noToggleFiltersButton,
+  onClickFilterButton,
+}) => (
   <Toolbar>
     <ToolbarRow>
-      <SquareButton
-        noRipple
-        onlyRightBorder
-        primary
-        use="add"
-      />
+      {mainButton}
 
       <ToolbarSection alignEnd>
         {!noToggleFiltersButton && <ToolbarIcon use="filter_list" onClick={onClickFilterButton} />}
@@ -31,6 +30,7 @@ export const DatagridToolbar: SFC<DatagridToolbarProps> = ({ noToggleFiltersButt
 );
 
 DatagridToolbar.defaultProps = {
+  mainButton: null,
   noToggleFiltersButton: false,
   onClickFilterButton: () => null,
 };
