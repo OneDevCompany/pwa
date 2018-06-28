@@ -5,12 +5,21 @@ import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
 import { DatagridTable } from './DatagridTable';
 import { DatagridToolbar } from './DatagridToolbar';
+import { Scrollbars } from 'components/ui';
+
+type DatagridProps = {
+  noFilters?: boolean;
+};
 
 type DatagridState = {
   filtersDrawerOpen: boolean;
 };
 
-export class Datagrid extends Component<{}, DatagridState> {
+export class Datagrid extends Component<DatagridProps, DatagridState> {
+  static defaultProps: DatagridProps = {
+    noFilters: false,
+  };
+
   constructor(props: any) {
     super(props);
 
@@ -20,16 +29,29 @@ export class Datagrid extends Component<{}, DatagridState> {
   }
 
   render() {
+    const { noFilters } = this.props;
     const { filtersDrawerOpen } = this.state;
 
     return (
       <div className="odc-datagrid">
-        <DatagridToolbar onClickFilterButton={this.toggleFilters} />
+        <DatagridToolbar
+          noToggleFiltersButton={noFilters}
+          onClickFilterButton={this.toggleFilters}
+        />
 
-        <DatagridAnimationWrapper open={filtersDrawerOpen}>
+        {!!noFilters ? (
           <DatagridTable />
-          <DatagridFilters onClickCloseButton={this.toggleFilters} />
-        </DatagridAnimationWrapper>
+        ) : (
+          <DatagridAnimationWrapper open={filtersDrawerOpen}>
+            <Scrollbars className="odc-table-scrollbars">
+              <div className="odc-table-wrapper">
+                <DatagridTable />
+              </div>
+            </Scrollbars>
+
+            <DatagridFilters onClickCloseButton={this.toggleFilters} />
+          </DatagridAnimationWrapper>
+        )}
 
         <DatagridPagination />
       </div>

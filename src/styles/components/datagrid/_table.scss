@@ -22,6 +22,10 @@
     }
   }
 
+  &__body-scrollbars {
+    flex-grow: 1;
+  }
+
   &-wrapper {
     display: flex;
     flex-grow: 1;

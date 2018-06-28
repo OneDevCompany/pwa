@@ -9,10 +9,11 @@ import {
 } from 'rmwc/Toolbar';
 
 type DatagridToolbarProps = {
+  noToggleFiltersButton?: boolean;
   onClickFilterButton?: () => void;
 };
 
-export const DatagridToolbar: SFC<DatagridToolbarProps> = ({ onClickFilterButton }) => (
+export const DatagridToolbar: SFC<DatagridToolbarProps> = ({ noToggleFiltersButton, onClickFilterButton }) => (
   <Toolbar>
     <ToolbarRow>
       <SquareButton
@@ -23,12 +24,13 @@ export const DatagridToolbar: SFC<DatagridToolbarProps> = ({ onClickFilterButton
       />
 
       <ToolbarSection alignEnd>
-        <ToolbarIcon use="filter_list" onClick={onClickFilterButton} />
+        {!noToggleFiltersButton && <ToolbarIcon use="filter_list" onClick={onClickFilterButton} />}
       </ToolbarSection>
     </ToolbarRow>
   </Toolbar>
 );
 
 DatagridToolbar.defaultProps = {
+  noToggleFiltersButton: false,
   onClickFilterButton: () => null,
 };

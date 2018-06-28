@@ -4,5 +4,5 @@ import { Datagrid } from 'components/ui';
 import '../src/styles/index.scss';
 
 export default () => (
-  <Datagrid />
+  <Datagrid noFilters />
 );
