@@ -1,12 +1,9 @@
 import * as React from 'react';
 import { Datagrid, SquareButton } from 'components/ui';
-import { Link } from 'components/commons';
+import Link from 'next/link';
 
 export default () => (
   <Datagrid
-    noFilters
-    noHeader
-    noPagination
     mainButton={
       <Link href="/other">
         <SquareButton
