@@ -11,7 +11,16 @@
   }
 
   &__section {
-    padding: 4px 4px 4px 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    &--align-start {
+      padding-left: 4px;
+    }
+
+    &--align-end {
+      padding-right: 4px;
+    }
   }
 
   &__title {
