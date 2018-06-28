@@ -6,6 +6,8 @@ import { Layout } from 'components/ui';
 
 import '../src/styles/index.scss';
 
+console.warn('TODO', 'add headerRightElements and headerLeftElements props for render elements in DatagridToolbar sections');
+console.warn('TODO', 'create serach input in Datagrid');
 console.warn('TODO', 'refactor TableCell. Maybe create a TableCellHeader and TableCellBody?');
 console.warn('TODO', 'pagination: decrease padding in items of "Rows per page" <Select>');
 console.warn('TODO', 'create type for "value" and "options" props in Select component');
