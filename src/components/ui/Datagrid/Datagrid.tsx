@@ -11,6 +11,7 @@ type DatagridProps = {
   mainButton?: ReactNode;
   noFilters?: boolean;
   noHeader?: boolean;
+  noPagination?: boolean;
 };
 
 type DatagridState = {
@@ -22,6 +23,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     mainButton: null,
     noFilters: false,
     noHeader: false,
+    noPagination: false,
   };
 
   constructor(props: any) {
@@ -33,7 +35,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
   }
 
   render() {
-    const { mainButton, noFilters, noHeader } = this.props;
+    const { mainButton, noFilters, noHeader, noPagination } = this.props;
     const { filtersDrawerOpen } = this.state;
 
     return (
@@ -54,7 +56,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
           </DatagridAnimationWrapper>
         )}
 
-        <DatagridPagination />
+        {!noPagination && <DatagridPagination />}
       </div>
     );
   }

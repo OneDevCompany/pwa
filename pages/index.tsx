@@ -6,6 +6,7 @@ export default () => (
   <Datagrid
     noFilters
     noHeader
+    noPagination
     mainButton={
       <Link href="/other">
         <SquareButton
