@@ -93,6 +93,10 @@
     .odc-table__row {
       min-height: 49px;
       display: flex;
+
+      &:hover {
+        background-color: $odc-theme-table-row-bg-hover;
+      }
     }
 
     .odc-table__cell {
@@ -110,6 +114,7 @@
   &__head,
   &__body {
     .odc-table__row {
+      background-clip: padding-box;
       border-bottom: $odc-divider-border;
     }
   }
