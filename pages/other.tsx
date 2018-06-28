@@ -1,3 +1,4 @@
 import * as React from 'react';
+import { Typography } from 'rmwc/Typography';
 
-export default () => <h1>Other Page</h1>;
+export default () => <Typography use="headline5">Other Page</Typography>;
