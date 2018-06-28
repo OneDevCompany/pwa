@@ -5,6 +5,7 @@ import { Link } from 'components/commons';
 export default () => (
   <Datagrid
     noFilters
+    noHeader
     mainButton={
       <Link href="/other">
         <SquareButton

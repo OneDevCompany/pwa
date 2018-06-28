@@ -8,8 +8,9 @@ import { DatagridTableWrapper } from './DatagridTableWrapper';
 import { DatagridToolbar } from './DatagridToolbar';
 
 type DatagridProps = {
-  noFilters?: boolean;
   mainButton?: ReactNode;
+  noFilters?: boolean;
+  noHeader?: boolean;
 };
 
 type DatagridState = {
@@ -18,8 +19,9 @@ type DatagridState = {
 
 export class Datagrid extends Component<DatagridProps, DatagridState> {
   static defaultProps: DatagridProps = {
-    noFilters: false,
     mainButton: null,
+    noFilters: false,
+    noHeader: false,
   };
 
   constructor(props: any) {
@@ -31,16 +33,18 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
   }
 
   render() {
-    const { mainButton, noFilters } = this.props;
+    const { mainButton, noFilters, noHeader } = this.props;
     const { filtersDrawerOpen } = this.state;
 
     return (
       <div className="odc-datagrid">
-        <DatagridToolbar
-          mainButton={mainButton}
-          noToggleFiltersButton={noFilters}
-          onClickFilterButton={this.toggleFilters}
-        />
+        {!noHeader && (
+          <DatagridToolbar
+            mainButton={mainButton}
+            noToggleFiltersButton={noFilters}
+            onClickFilterButton={this.toggleFilters}
+          />
+        )}
 
         {!!noFilters ? this.renderTable() : (
           <DatagridAnimationWrapper open={filtersDrawerOpen}>
