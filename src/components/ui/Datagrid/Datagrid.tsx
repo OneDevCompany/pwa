@@ -4,8 +4,8 @@ import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
 import { DatagridTable } from './DatagridTable';
+import { DatagridTableWrapper } from './DatagridTableWrapper';
 import { DatagridToolbar } from './DatagridToolbar';
-import { Scrollbars } from 'components/ui';
 
 type DatagridProps = {
   noFilters?: boolean;
@@ -39,15 +39,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
           onClickFilterButton={this.toggleFilters}
         />
 
-        {!!noFilters ? (
-          <DatagridTable />
-        ) : (
+        {!!noFilters ? this.renderTable() : (
           <DatagridAnimationWrapper open={filtersDrawerOpen}>
-            <Scrollbars className="odc-table-scrollbars">
-              <div className="odc-table-wrapper">
-                <DatagridTable />
-              </div>
-            </Scrollbars>
+            {this.renderTable()}
 
             <DatagridFilters onClickCloseButton={this.toggleFilters} />
           </DatagridAnimationWrapper>
@@ -57,6 +51,12 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
       </div>
     );
   }
+
+  private renderTable = () => (
+    <DatagridTableWrapper>
+      <DatagridTable />
+    </DatagridTableWrapper>
+  )
 
   private toggleFilters = () => this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen });
 }

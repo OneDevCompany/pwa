@@ -1,0 +1,24 @@
+.odc-datagrid {
+  &__table-external-scrollbars {
+    height: unset !important;
+    display: flex;
+    flex-grow: 1;
+
+    > div:first-child {
+      display: flex;
+
+      > div {
+        display: flex !important;
+
+        > div {
+          display: flex !important;
+        }
+      }
+    }
+  }
+
+  &__table-wrapper {
+    display: flex;
+    flex-grow: 1;
+  }
+}

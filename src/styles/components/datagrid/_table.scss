@@ -5,29 +5,7 @@
   flex-direction: column;
   flex-grow: 1;
 
-  &-scrollbars {
-    height: unset !important;
-    display: flex;
-
-    > div:first-child {
-      display: flex;
-
-      > div {
-        display: flex !important;
-
-        > div {
-          display: flex !important;
-        }
-      }
-    }
-  }
-
   &__body-scrollbars {
-    flex-grow: 1;
-  }
-
-  &-wrapper {
-    display: flex;
     flex-grow: 1;
   }
 
