@@ -12,6 +12,9 @@ type DatagridProps = {
   noFilters?: boolean;
   noHeader?: boolean;
   noPagination?: boolean;
+
+  data?: { [key: string]: any }[];
+  dataUniqueKey?: string;
 };
 
 type DatagridState = {
@@ -24,6 +27,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     noFilters: false,
     noHeader: false,
     noPagination: false,
+
+    data: [],
+    dataUniqueKey: '',
   };
 
   constructor(props: any) {
@@ -35,7 +41,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
   }
 
   render() {
-    const { mainButton, noFilters, noHeader, noPagination } = this.props;
+    const { mainButton, noFilters, noHeader, noPagination, ...otherProps } = this.props;
     const { filtersDrawerOpen } = this.state;
 
     return (
@@ -48,9 +54,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
           />
         )}
 
-        {!!noFilters ? this.renderTable() : (
+        {!!noFilters ? this.renderTable(otherProps) : (
           <DatagridAnimationWrapper open={filtersDrawerOpen}>
-            {this.renderTable()}
+            {this.renderTable(otherProps)}
 
             <DatagridFilters onClickCloseButton={this.toggleFilters} />
           </DatagridAnimationWrapper>
@@ -61,9 +67,12 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     );
   }
 
-  private renderTable = () => (
+  private renderTable = ({ data, dataUniqueKey }: DatagridProps) => (
     <DatagridTableWrapper>
-      <DatagridTable />
+      <DatagridTable
+        data={data}
+        dataUniqueKey={dataUniqueKey}
+      />
     </DatagridTableWrapper>
   )
 

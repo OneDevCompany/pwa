@@ -9,7 +9,15 @@ import {
   TableRow,
 } from 'components/ui';
 
-export const DatagridTable: SFC<{}> = () => (
+type DatagridTableProps = {
+  data: { [key: string]: any }[];
+  dataUniqueKey: string;
+};
+
+export const DatagridTable: SFC<DatagridTableProps> = ({
+  data,
+  dataUniqueKey,
+}) => (
   <Table>
     <TableHead>
       <TableRow>
@@ -25,156 +33,13 @@ export const DatagridTable: SFC<{}> = () => (
       style={{ minWidth: 800 - 100 }}
     >
       <TableBody>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Danilo Barros</TableCell>
-          <TableCell>danilobarros@email.com</TableCell>
-          <TableCell>Web Developer</TableCell>
-          <TableCell>33</TableCell>
-        </TableRow>
+        {data.map(item => {
+          const cells = Object
+            .keys(item)
+            .map(key => <TableCell key={key}>{item[key]}</TableCell>);
+
+          return <TableRow key={item[dataUniqueKey]}>{cells}</TableRow>;
+        })}
       </TableBody>
     </Scrollbars>
   </Table>
