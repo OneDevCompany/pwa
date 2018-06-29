@@ -1,4 +1,6 @@
+import { StringKeyValuePair } from '../models';
+
 export type DatagridTableData = {
-  items: { [ley: string]: any }[];
+  items: StringKeyValuePair[];
   uniqueKey: string;
 };
