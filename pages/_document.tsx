@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-          {/* <meta name="theme-color" content="#9f25b3" /> */}
+          <meta name="theme-color" content="#006dff" />
 
           <link rel="dns-prefetch" href="//fonts.googleapis.com" />
           <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
