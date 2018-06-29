@@ -7,6 +7,7 @@ import { Layout } from 'components/ui';
 import '../src/styles/index.scss';
 
 console.warn('TODO', 'apply patterns https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935');
+console.warn('TODO', 'refactor for use ramda?');
 console.warn('TODO', 'check if call a funciton like this.renderSomething() inside render() always return false in componentShouldUpdate');
 console.warn('TODO', 'add headerRightElements and headerLeftElements props for render elements in DatagridToolbar sections');
 console.warn('TODO', 'create serach input in Datagrid');
