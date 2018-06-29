@@ -22,7 +22,7 @@
   "sideEffects": false,
   "dependencies": {
     "classnames": "2.2.6",
-    "next": "6.1.0",
+    "next": "6.1.1",
     "normalize.css": "8.0.0",
     "react": "16.4.1",
     "react-dom": "16.4.1",
@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/classnames": "file:custom_typings/classnames",
     "@types/next": "file:custom_typings/next",
-    "@types/react": "16.4.4",
+    "@types/react": "16.4.5",
     "@types/react-dom": "16.0.6",
     "@types/rmwc": "file:custom_typings/rmwc",
     "@types/tt-react-custom-scrollbars": "file:custom_typings/tt-react-custom-scrollbars",
