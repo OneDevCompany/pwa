@@ -6,15 +6,14 @@ import { DatagridPagination } from './DatagridPagination';
 import { DatagridTable } from './DatagridTable';
 import { DatagridTableWrapper } from './DatagridTableWrapper';
 import { DatagridToolbar } from './DatagridToolbar';
+import { DatagridTableData } from './models';
 
 type DatagridProps = {
+  data?: DatagridTableData;
   mainButton?: ReactNode;
   noFilters?: boolean;
   noHeader?: boolean;
   noPagination?: boolean;
-
-  data?: { [key: string]: any }[];
-  dataUniqueKey?: string;
 };
 
 type DatagridState = {
@@ -23,13 +22,14 @@ type DatagridState = {
 
 export class Datagrid extends Component<DatagridProps, DatagridState> {
   static defaultProps: DatagridProps = {
+    data: {
+      items: [],
+      uniqueKey: '',
+    },
     mainButton: null,
     noFilters: false,
     noHeader: false,
     noPagination: false,
-
-    data: [],
-    dataUniqueKey: '',
   };
 
   constructor(props: any) {
@@ -41,7 +41,14 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
   }
 
   render() {
-    const { mainButton, noFilters, noHeader, noPagination, ...otherProps } = this.props;
+    const {
+      data,
+      mainButton,
+      noFilters,
+      noHeader,
+      noPagination,
+    } = this.props;
+
     const { filtersDrawerOpen } = this.state;
 
     return (
@@ -54,9 +61,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
           />
         )}
 
-        {!!noFilters ? this.renderTable(otherProps) : (
+        {!!noFilters ? this.renderTable(data) : (
           <DatagridAnimationWrapper open={filtersDrawerOpen}>
-            {this.renderTable(otherProps)}
+            {this.renderTable(data)}
 
             <DatagridFilters onClickCloseButton={this.toggleFilters} />
           </DatagridAnimationWrapper>
@@ -67,12 +74,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     );
   }
 
-  private renderTable = ({ data, dataUniqueKey }: DatagridProps) => (
+  private renderTable = (data: DatagridTableData) => (
     <DatagridTableWrapper>
-      <DatagridTable
-        data={data}
-        dataUniqueKey={dataUniqueKey}
-      />
+      <DatagridTable {...data} />
     </DatagridTableWrapper>
   )
 

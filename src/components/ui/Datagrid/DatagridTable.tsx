@@ -8,15 +8,13 @@ import {
   TableHead,
   TableRow,
 } from 'components/ui';
+import { DatagridTableData } from './models';
 
-type DatagridTableProps = {
-  data: { [key: string]: any }[];
-  dataUniqueKey: string;
-};
+type DatagridTableProps = DatagridTableData;
 
 export const DatagridTable: SFC<DatagridTableProps> = ({
-  data,
-  dataUniqueKey,
+  items,
+  uniqueKey,
 }) => (
   <Table>
     <TableHead>
@@ -33,12 +31,12 @@ export const DatagridTable: SFC<DatagridTableProps> = ({
       style={{ minWidth: 800 - 100 }}
     >
       <TableBody>
-        {data.map(item => {
+        {items.map(item => {
           const cells = Object
             .keys(item)
             .map(key => <TableCell key={key}>{item[key]}</TableCell>);
 
-          return <TableRow key={item[dataUniqueKey]}>{cells}</TableRow>;
+          return <TableRow key={item[uniqueKey]}>{cells}</TableRow>;
         })}
       </TableBody>
     </Scrollbars>

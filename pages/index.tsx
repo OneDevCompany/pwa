@@ -9,7 +9,7 @@ type Person = {
   age: number;
 };
 
-const data = [
+const people = [
   {
     name: 'Danilo',
     email: 'danilo@email.com',
@@ -30,7 +30,9 @@ export default () => (
         />
       </Link>
     }
-    data={data}
-    dataUniqueKey="email"
+    data={{
+      items: people,
+      uniqueKey: 'email',
+    }}
   />
 );
