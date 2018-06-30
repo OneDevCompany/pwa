@@ -3,18 +3,16 @@ import { Component, ReactNode } from 'react';
 import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
-import { DatagridTable } from './DatagridTable';
+import { DatagridTable, DatagridTableProps } from './DatagridTable';
 import { DatagridTableWrapper } from './DatagridTableWrapper';
 import { DatagridToolbar } from './DatagridToolbar';
-import { DatagridTableData } from './models';
 
 type DatagridProps = {
-  data?: DatagridTableData;
   mainButton?: ReactNode;
   noFilters?: boolean;
   noHeader?: boolean;
   noPagination?: boolean;
-};
+} & DatagridTableProps;
 
 type DatagridState = {
   filtersDrawerOpen: boolean;
@@ -22,10 +20,6 @@ type DatagridState = {
 
 export class Datagrid extends Component<DatagridProps, DatagridState> {
   static defaultProps: DatagridProps = {
-    data: {
-      items: [],
-      uniqueKey: '',
-    },
     mainButton: null,
     noFilters: false,
     noHeader: false,
@@ -42,7 +36,6 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
 
   render() {
     const {
-      data,
       mainButton,
       noFilters,
       noHeader,
@@ -61,9 +54,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
           />
         )}
 
-        {!!noFilters ? this.renderTable(data) : (
+        {!!noFilters ? this.renderTable(this.props) : (
           <DatagridAnimationWrapper open={filtersDrawerOpen}>
-            {this.renderTable(data)}
+            {this.renderTable(this.props)}
 
             <DatagridFilters onClickCloseButton={this.toggleFilters} />
           </DatagridAnimationWrapper>
@@ -74,11 +67,13 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     );
   }
 
-  private renderTable = (data: DatagridTableData) => (
-    <DatagridTableWrapper>
-      <DatagridTable {...data} />
-    </DatagridTableWrapper>
-  )
+  private renderTable = (props: DatagridProps) => {
+    return (
+      <DatagridTableWrapper>
+        <DatagridTable {...props} />
+      </DatagridTableWrapper>
+    );
+  }
 
   private toggleFilters = () => this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen });
 }

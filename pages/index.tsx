@@ -30,9 +30,13 @@ export default () => (
         />
       </Link>
     }
-    data={{
-      items: people,
-      uniqueKey: 'email',
-    }}
+    items={people}
+    itemUniqueKey="email"
+    tableColumns={[
+      { header: 'Name' },
+      { header: 'Email' },
+      { header: 'Occupation', flexBasis: 150 },
+      { header: 'Age', flexBasis: 100 },
+    ]}
   />
 );

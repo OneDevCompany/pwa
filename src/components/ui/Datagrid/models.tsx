@@ -1,6 +1,6 @@
-import { StringKeyValuePair } from '../models';
-
-export type DatagridTableData = {
-  items: StringKeyValuePair[];
-  uniqueKey: string;
+export type DatagridTableColumn = {
+  header: string;
+  flexBasis?: number;
 };
+
+export type Order = 'asc' | 'desc';
