@@ -7,6 +7,8 @@ import { DatagridTable, DatagridTableProps } from './DatagridTable';
 import { DatagridTableWrapper } from './DatagridTableWrapper';
 import { DatagridToolbar } from './DatagridToolbar';
 
+// TODO: default column width via prop
+
 type DatagridProps = {
   mainButton?: ReactNode;
   noFilters?: boolean;
