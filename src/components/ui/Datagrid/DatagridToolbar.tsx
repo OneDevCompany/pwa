@@ -7,6 +7,9 @@ import {
   ToolbarSection,
 } from 'rmwc/Toolbar';
 
+// TODO: create serach input in Datagrid
+// TODO: add headerRightElements and headerLeftElements
+
 type DatagridToolbarProps = {
   mainButton?: ReactNode;
   noToggleFiltersButton?: boolean;

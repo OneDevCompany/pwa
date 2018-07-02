@@ -11,6 +11,9 @@ import {
 import { DatagridTableColumn } from './models';
 import { StringKeyValuePair } from '../models';
 
+// TODO: logic for empty data in DatagridTable
+// FIXME: last column is partially hidden when mobile size
+
 export type DatagridTableProps = {
   items?: StringKeyValuePair[];
   itemUniqueKey?: string;

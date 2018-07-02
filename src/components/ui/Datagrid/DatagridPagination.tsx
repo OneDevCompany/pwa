@@ -4,6 +4,8 @@ import { Toolbar, ToolbarIcon, ToolbarRow, ToolbarSection } from 'rmwc/Toolbar';
 import { Typography } from 'rmwc/Typography';
 import { Select } from 'components/ui';
 
+// TODO: pagination: decrease padding in items of "Rows per page" <Select>
+
 export const DatagridPagination: SFC<{}> = () => (
   <Toolbar className="odc-pagination">
     <ToolbarRow>

@@ -3,6 +3,8 @@ import classNames from 'classnames';
 import { HTMLProps, SFC } from 'react';
 import { Icon } from 'rmwc/Icon';
 
+// TODO: refactor TableCell. Maybe create a TableCellHeader and TableCellBody?
+
 type TableCellProps = {
   active?: boolean;
   head?: boolean;

@@ -4,6 +4,8 @@ import { Button, ButtonIcon } from 'rmwc/Button';
 import { Menu, MenuAnchor, MenuItem } from 'rmwc/Menu';
 import { Typography } from 'rmwc/Typography';
 
+// TODO: create type for "value" and "options" props in Select component
+
 type SelectProps = {
   options: string[];
 };
