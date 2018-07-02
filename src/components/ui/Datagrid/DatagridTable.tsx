@@ -10,8 +10,9 @@ import {
 } from 'components/ui';
 import { DatagridTableColumn } from './models';
 import { StringKeyValuePair } from '../models';
+import { zipWith } from '../utils';
 
-// TODO: logic for empty data in DatagridTable
+// TODO: deal with empty data
 // FIXME: last column is partially hidden when mobile size
 
 export type DatagridTableProps = {
@@ -48,24 +49,37 @@ function renderHeaders({ tableColumns }: DatagridTableProps) {
     <TableCell
       key={header}
       head
-      style={getHeaderCellWidth(flexBasis)}
+      style={getCellWidth(flexBasis)}
     >
       {header}
     </TableCell>
   ));
 }
 
-function renderRows({ items, itemUniqueKey }: DatagridTableProps) {
+// TODO: refactor
+function renderRows({ items, itemUniqueKey, tableColumns }: DatagridTableProps) {
+  const itemKeys = Object.keys(items[0]);
+  const toKeyAndFlexBasisPair = (key: string, column: DatagridTableColumn) => ({ [key]: column.flexBasis });
+  const columnsProjection = zipWith(toKeyAndFlexBasisPair, itemKeys, tableColumns)
+    .reduce((accu, curr) => ({ ...accu, ...curr }), {});
+
   return items.map(item => {
     const cells = Object
       .keys(item)
-      .map(key => <TableCell key={key}>{item[key]}</TableCell>);
+      .map(key => (
+        <TableCell
+          key={key}
+          style={getCellWidth(columnsProjection[key])}
+        >
+          {item[key]}
+        </TableCell>
+      ));
 
     return <TableRow key={item[itemUniqueKey]}>{cells}</TableRow>;
   });
 }
 
-function getHeaderCellWidth(flexBasis: number = 200) {
+function getCellWidth(flexBasis: number = 200) {
   return { flexBasis };
 }
 
