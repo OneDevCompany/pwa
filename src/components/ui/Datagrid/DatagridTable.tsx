@@ -10,7 +10,7 @@ import {
 } from 'components/ui';
 import { DatagridTableColumn } from './models';
 import { StringKeyValuePair } from '../models';
-import { pickAll } from 'ramda';
+import { add, pickAll, pluck } from 'ramda';
 
 // TODO: deal with empty data
 // TODO: tableColumns should not be required. Define rules/behaviors
@@ -29,8 +29,7 @@ export const DatagridTable: SFC<DatagridTableProps> = (props) => (
 
     <Scrollbars
       className="odc-table__body-scrollbars"
-      // style={getScrollbarStyle(props)}
-      style={{ minWidth: 800 }}
+      style={getScrollbarStyle(props)}
     >
       <TableBody>
         {renderRows(props)}
@@ -56,33 +55,41 @@ function renderHeaders({ tableColumns }: DatagridTableProps) {
   ));
 }
 
-// TODO: refactor
 function renderRows(props: DatagridTableProps) {
   const { itemUniqueKey, tableColumns } = props;
 
+  const keysConfiguredInTableColumnsProp = pluck<'key', string>('key', tableColumns);
+
+  return props.items
+    .map(pickAll(keysConfiguredInTableColumnsProp))
+    .map((item: StringKeyValuePair) => (
+      <TableRow key={item[itemUniqueKey]}>
+        {renderBodyCells(item, tableColumns, keysConfiguredInTableColumnsProp)}
+      </TableRow>
+    ));
+}
+
+function renderBodyCells(item: StringKeyValuePair, tableColumns: DatagridTableColumn[], keysConfiguredInTableColumnsProp: string[]) {
   const columnsStyles = tableColumns
-    .reduce((accu, curr) => {
-      accu[curr.key] = curr.style;
-      return accu;
-    }, {} as StringKeyValuePair<CSSProperties>);
+    .reduce((pair, column) => ({
+      ...pair,
+      [column.key]: column.style,
+    }), {} as StringKeyValuePair<CSSProperties>);
 
-  const keysUsedInColumns = Object.keys(columnsStyles);
+  return keysConfiguredInTableColumnsProp
+    .map(key => (
+      <TableCell
+        key={key}
+        style={getCellStyle(columnsStyles[key])}
+      >
+        {item[key]}
+      </TableCell>
+    ));
+}
 
-  const items: StringKeyValuePair[] = props.items.map(pickAll(keysUsedInColumns));
-
-  return items.map(item => {
-    const cells = keysUsedInColumns
-      .map(key => (
-        <TableCell
-          key={key}
-          style={getCellStyle(columnsStyles[key])}
-        >
-          {item[key]}
-        </TableCell>
-      ));
-
-    return <TableRow key={item[itemUniqueKey]}>{cells}</TableRow>;
-  });
+function getCellStyle(style: CSSProperties) {
+  const flexBasis = getFlexBasis(style);
+  return { ...style, flexBasis };
 }
 
 function getFlexBasis(style: CSSProperties = {}) {
@@ -92,19 +99,10 @@ function getFlexBasis(style: CSSProperties = {}) {
   return Number(width);
 }
 
-function getCellStyle(style: CSSProperties) {
-  const flexBasis = getFlexBasis(style);
-  return { ...style, flexBasis };
-}
-
-function getScrollbarStyle({ items, tableColumns }: DatagridTableProps) {
-  const defaultWidth = 200;
-  const scrollbarOffset = 100;
-
-  const widthFromColumns = tableColumns.reduce((totalWidth, column) => getFlexBasis(column.style), 0);
-  const widthFromItemsCount = items.length * defaultWidth;
-
-  const minWidth = (widthFromColumns || widthFromItemsCount) - scrollbarOffset;
+function getScrollbarStyle({ tableColumns }: DatagridTableProps) {
+  const minWidth = tableColumns
+    .map(column => getFlexBasis(column.style))
+    .reduce(add);
 
   return { minWidth };
 }
