@@ -4,8 +4,8 @@ import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
 import { DatagridTable, DatagridTableProps } from './DatagridTable';
-import { DatagridTableWrapper } from './DatagridTableWrapper';
 import { DatagridToolbar } from './DatagridToolbar';
+import { Scrollbars } from 'components/ui';
 
 // TODO: default column width via prop
 
@@ -70,9 +70,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
   }
 
   private renderTable = (props: DatagridProps) => (
-    <DatagridTableWrapper>
+    <Scrollbars className="odc-datagrid__table-external-scrollbars">
       <DatagridTable {...props} />
-    </DatagridTableWrapper>
+    </Scrollbars>
   );
 
   private toggleFilters = () => this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen });
