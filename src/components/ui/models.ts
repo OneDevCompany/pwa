@@ -1,3 +1,3 @@
-export type StringKeyValuePair = {
-  [key: string]: any;
+export type StringKeyValuePair<T = any> = {
+  [key: string]: T;
 };

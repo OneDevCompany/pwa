@@ -1,6 +1,9 @@
+import { CSSProperties } from 'react';
+
 export type DatagridTableColumn = {
   header: string;
-  flexBasis?: number;
+  key: string;
+  style?: CSSProperties;
 };
 
 export type Order = 'asc' | 'desc';
