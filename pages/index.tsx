@@ -18,10 +18,12 @@ export default () => (
     items={people}
     itemUniqueKey="email"
     tableColumns={[
-      { header: 'Name' },
-      { header: 'Email' },
-      { header: 'Occupation', flexBasis: 150 },
-      { header: 'Age', flexBasis: 100 },
+      { key: 'name', header: 'Name' },
+      { key: 'email', header: 'Email' },
+      // { key: 'occupation', header: 'Occupation', style: { flexBasis: 180 } },
+      // { key: 'age', header: 'Age', style: { flexBasis: 100 } },
+      { key: 'occupation', header: 'Occupation' },
+      { key: 'age', header: 'Age' },
     ]}
   />
 );

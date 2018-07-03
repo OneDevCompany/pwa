@@ -6,19 +6,6 @@
 
     > div:first-child {
       display: flex;
-
-      > div {
-        display: flex !important;
-
-        > div {
-          display: flex !important;
-        }
-      }
     }
-  }
-
-  &__table-wrapper {
-    display: flex;
-    flex-grow: 1;
   }
 }

@@ -25,17 +25,17 @@
     "next": "6.1.1",
     "normalize.css": "8.0.0",
     "react": "16.4.1",
+    "react-custom-scrollbars": "4.2.1",
     "react-dom": "16.4.1",
-    "rmwc": "1.7.6",
-    "tt-react-custom-scrollbars": "4.2.1-tt1"
+    "rmwc": "1.7.6"
   },
   "devDependencies": {
     "@types/classnames": "file:custom_typings/classnames",
     "@types/next": "file:custom_typings/next",
     "@types/react": "16.4.5",
+    "@types/react-custom-scrollbars": "4.0.4",
     "@types/react-dom": "16.0.6",
     "@types/rmwc": "file:custom_typings/rmwc",
-    "@types/tt-react-custom-scrollbars": "file:custom_typings/tt-react-custom-scrollbars",
     "@zeit/next-sass": "0.2.0",
     "@zeit/next-typescript": "1.1.0",
     "node-sass": "4.9.0",

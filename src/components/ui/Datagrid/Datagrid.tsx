@@ -21,7 +21,7 @@ type DatagridState = {
 };
 
 export class Datagrid extends Component<DatagridProps, DatagridState> {
-  static defaultProps: DatagridProps = {
+  static defaultProps: Partial<DatagridProps> = {
     mainButton: null,
     noFilters: false,
     noHeader: false,
@@ -69,13 +69,11 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     );
   }
 
-  private renderTable = (props: DatagridProps) => {
-    return (
-      <DatagridTableWrapper>
-        <DatagridTable {...props} />
-      </DatagridTableWrapper>
-    );
-  }
+  private renderTable = (props: DatagridProps) => (
+    <DatagridTableWrapper>
+      <DatagridTable {...props} />
+    </DatagridTableWrapper>
+  );
 
   private toggleFilters = () => this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen });
 }
