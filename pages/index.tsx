@@ -20,7 +20,7 @@ export default () => (
     tableColumns={[
       { key: 'name', header: 'Name' },
       { key: 'email', header: 'Email' },
-      { key: 'occupation', header: 'Occupation', style: { flexBasis: 180 } },
+      { key: 'occupation', header: 'Occupation', noSort: true, style: { flexBasis: 180 } },
       { key: 'age', header: 'Age', style: { flexBasis: 100 } },
     ]}
   />
