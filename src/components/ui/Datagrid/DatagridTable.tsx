@@ -46,11 +46,11 @@ DatagridTable.defaultProps = {
 };
 
 function renderHeaders({ tableColumns }: DatagridTableProps) {
-  return tableColumns.map(({ header, style }) => (
+  return tableColumns.map(({ header, style, ...otherProps }) => (
     <TableCell
-      key={header}
       head
       style={getCellStyle(style)}
+      {...otherProps}
     >
       {header}
     </TableCell>
