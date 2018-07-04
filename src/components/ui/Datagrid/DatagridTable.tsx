@@ -12,6 +12,7 @@ import { DatagridTableColumn } from './models';
 import { StringKeyValuePair } from '../models';
 import { add, pickAll, pluck } from 'ramda';
 
+// TODO: extract TableHead and TableBody with their logic to other files?
 // TODO: deal with empty data
 // TODO: tableColumns should not be required. Define rules/behaviors
 // TODO: should use memoization for performance?
