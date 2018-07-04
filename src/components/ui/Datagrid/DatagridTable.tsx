@@ -14,6 +14,7 @@ import { add, pickAll, pluck } from 'ramda';
 
 // TODO: deal with empty data
 // TODO: tableColumns should not be required. Define rules/behaviors
+// TODO: should use memoization for performance?
 
 export type DatagridTableProps = {
   items?: StringKeyValuePair[];
@@ -60,22 +61,26 @@ function renderRows(props: DatagridTableProps) {
 
   const keysConfiguredInTableColumnsProp = pluck<'key', string>('key', tableColumns);
 
-  return props.items
-    .map(pickAll(keysConfiguredInTableColumnsProp))
-    .map((item: StringKeyValuePair) => (
-      <TableRow key={item[itemUniqueKey]}>
-        {renderBodyCells(item, tableColumns, keysConfiguredInTableColumnsProp)}
-      </TableRow>
-    ));
-}
-
-function renderBodyCells(item: StringKeyValuePair, tableColumns: DatagridTableColumn[], keysConfiguredInTableColumnsProp: string[]) {
   const columnsStyles = tableColumns
     .reduce((pair, column) => ({
       ...pair,
       [column.key]: column.style,
     }), {} as StringKeyValuePair<CSSProperties>);
 
+  return props.items
+    .map(pickAll(keysConfiguredInTableColumnsProp))
+    .map((item: StringKeyValuePair) => (
+      <TableRow key={item[itemUniqueKey]}>
+        {renderBodyCells(item, columnsStyles, keysConfiguredInTableColumnsProp)}
+      </TableRow>
+    ));
+}
+
+function renderBodyCells(
+  item: StringKeyValuePair,
+  columnsStyles: StringKeyValuePair<CSSProperties>,
+  keysConfiguredInTableColumnsProp: string[],
+) {
   return keysConfiguredInTableColumnsProp
     .map(key => (
       <TableCell
