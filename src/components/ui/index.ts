@@ -1,5 +1,6 @@
 export * from './Datagrid';
 export * from './Layout';
+export * from './ProgressBar';
 export * from './Scrollbars';
 export * from './Select';
 export * from './SquareButton';

@@ -1,0 +1,25 @@
+.odc-progress-bar {
+  width: 100%;
+  height: $odc-progress-bar-height;
+  background: linear-gradient(-45deg,
+    #006dff 25%,#002de4 25%,
+    #002de4 50%,#006dff 50%,
+    #006dff 75%,#002de4 75%,
+    #002de4);
+  background-size: .8rem .8rem;
+  transition: opacity .25s cubic-bezier(.4,0,.6,1) 0ms;
+  animation: progress-bar-stripes .2s linear infinite;
+
+  &--hidden {
+    opacity: 0;
+  }
+}
+
+@keyframes progress-bar-stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1rem 0;
+  }
+}
