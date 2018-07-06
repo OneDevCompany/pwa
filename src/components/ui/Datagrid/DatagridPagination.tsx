@@ -12,7 +12,7 @@ export const DatagridPagination: SFC<{}> = () => (
       <ToolbarSection alignEnd>
         <div className="odc-pagination__rows">
           <Typography use="caption">Rows per page:</Typography>
-          <Select options={['5', '10', '25']} />
+          <Select options={['10', '25', '50']} />
         </div>
 
         <div className="odc-pagination__counter">

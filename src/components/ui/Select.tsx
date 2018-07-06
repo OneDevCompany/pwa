@@ -36,7 +36,7 @@ export class Select extends Component<SelectProps, SelectState> {
         </Menu>
 
         <Button dense onClick={this.open}>
-          <Typography use="caption">5</Typography>
+          <Typography use="caption">10</Typography>
           <ButtonIcon use="arrow_drop_down" />
         </Button>
       </MenuAnchor>
