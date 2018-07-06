@@ -11,14 +11,14 @@ import {
 // TODO: create serach input in Datagrid
 // TODO: add headerRightElements and headerLeftElements
 
-type DatagridToolbarProps = {
+type DatagridHeaderProps = {
   showProgress?: boolean;
   mainButton?: ReactNode;
   noToggleFiltersButton?: boolean;
   onClickFilterButton?: () => void;
 };
 
-export const DatagridToolbar: SFC<DatagridToolbarProps> = ({
+export const DatagridHeader: SFC<DatagridHeaderProps> = ({
   showProgress,
   mainButton,
   noToggleFiltersButton,
@@ -37,7 +37,7 @@ export const DatagridToolbar: SFC<DatagridToolbarProps> = ({
   </Toolbar>
 );
 
-DatagridToolbar.defaultProps = {
+DatagridHeader.defaultProps = {
   showProgress: false,
   mainButton: null,
   noToggleFiltersButton: false,

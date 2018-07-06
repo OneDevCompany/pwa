@@ -4,7 +4,7 @@ import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
 import { DatagridTable, DatagridTableProps } from './DatagridTable';
-import { DatagridToolbar } from './DatagridToolbar';
+import { DatagridHeader } from './DatagridHeader';
 import { Scrollbars } from 'components/ui';
 
 // TODO: default column width via prop
@@ -52,7 +52,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     return (
       <div className="odc-datagrid">
         {!noHeader && (
-          <DatagridToolbar
+          <DatagridHeader
             showProgress={loading}
             mainButton={mainButton}
             noToggleFiltersButton={noFilters}
