@@ -10,6 +10,7 @@ import { Scrollbars } from 'components/ui';
 // TODO: default column width via prop
 
 type DatagridProps = {
+  loading?: boolean;
   mainButton?: ReactNode;
   noFilters?: boolean;
   noHeader?: boolean;
@@ -22,6 +23,7 @@ type DatagridState = {
 
 export class Datagrid extends Component<DatagridProps, DatagridState> {
   static defaultProps: Partial<DatagridProps> = {
+    loading: false,
     mainButton: null,
     noFilters: false,
     noHeader: false,
@@ -38,6 +40,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
 
   render() {
     const {
+      loading,
       mainButton,
       noFilters,
       noHeader,
@@ -50,6 +53,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
       <div className="odc-datagrid">
         {!noHeader && (
           <DatagridToolbar
+            showProgress={loading}
             mainButton={mainButton}
             noToggleFiltersButton={noFilters}
             onClickFilterButton={this.toggleFilters}

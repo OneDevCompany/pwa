@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ReactNode, SFC } from 'react';
+import { ProgressBar } from 'components/ui';
 import {
   Toolbar,
   ToolbarIcon,
@@ -11,17 +12,19 @@ import {
 // TODO: add headerRightElements and headerLeftElements
 
 type DatagridToolbarProps = {
+  showProgress?: boolean;
   mainButton?: ReactNode;
   noToggleFiltersButton?: boolean;
   onClickFilterButton?: () => void;
 };
 
 export const DatagridToolbar: SFC<DatagridToolbarProps> = ({
+  showProgress,
   mainButton,
   noToggleFiltersButton,
   onClickFilterButton,
 }) => (
-  <Toolbar>
+  <Toolbar className="odc-header">
     <ToolbarRow>
       {mainButton}
 
@@ -29,10 +32,13 @@ export const DatagridToolbar: SFC<DatagridToolbarProps> = ({
         {!noToggleFiltersButton && <ToolbarIcon use="filter_list" onClick={onClickFilterButton} />}
       </ToolbarSection>
     </ToolbarRow>
+
+    <ProgressBar hidden={!showProgress} />
   </Toolbar>
 );
 
 DatagridToolbar.defaultProps = {
+  showProgress: false,
   mainButton: null,
   noToggleFiltersButton: false,
   onClickFilterButton: () => null,

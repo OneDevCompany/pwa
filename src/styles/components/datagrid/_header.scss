@@ -1,0 +1,10 @@
+.odc-datagrid .odc-header {
+  .odc-square-button:first-of-type {
+    z-index: 1;
+  }
+
+  .odc-progress-bar {
+    position: absolute;
+    top: calc(100% - #{$odc-progress-bar-height});
+  }
+}
