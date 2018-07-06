@@ -5,10 +5,6 @@
   flex-direction: column;
   flex-grow: 1;
 
-  &__body-scrollbars {
-    flex-grow: 1;
-  }
-
   &__head {
     .odc-table__row {
       height: $odc-topappbar-height;
@@ -64,6 +60,10 @@
         margin-left: -.2rem;
       }
     }
+  }
+
+  &__body-scrollbars {
+    flex-grow: 1;
   }
 
   &__body {
