@@ -3,9 +3,16 @@ import App from 'next/app';
 import { AppComponentContext, Container } from 'next/app';
 import { DrawerContent } from 'components/commons';
 import { Layout } from 'components/ui';
+import fetch from 'isomorphic-unfetch';
+
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+
+const client = new ApolloClient({ uri: 'http://localhost:9000', fetchOptions: { fetch } });
 
 import '../src/styles/index.scss';
 
+// TODO: remove custom_typings for next and rmwc?
 // TODO: refactor all styles to use css grid
 // TODO: apply patterns https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935
 // TODO: refactor for use ramda?
@@ -33,12 +40,14 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        <Layout
-          appName="App Name"
-          drawerContent={<DrawerContent />}
-        >
-          <Component {...pageProps} />
-        </Layout>
+        <ApolloProvider client={client}>
+          <Layout
+            appName="App Name"
+            drawerContent={<DrawerContent />}
+          >
+            <Component {...pageProps} />
+          </Layout>
+        </ApolloProvider>
       </Container>
     );
   }
