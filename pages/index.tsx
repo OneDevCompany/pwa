@@ -19,14 +19,15 @@ const getPeopleQuery = gql`
 // TODO: type safe for <Query> children function: loading, error and data.
 // TODO: loading prop for Datagrid
 // TODO: write typings for isomorphic-unfetch or change this to isomorphic-fetch package if it has types.
+// TODO: when !!error, show snackbar
 export default () => (
   <Query query={getPeopleQuery}>
     {({ loading, error, data }) => {
-      if (loading) return <div>Loading...</div>;
       if (error) return <div>Error :(</div>;
 
       return (
         <Datagrid
+          loading={loading}
           mainButton={
             <Link href="/other">
               <SquareButton
