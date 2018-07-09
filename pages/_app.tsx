@@ -3,12 +3,12 @@ import App from 'next/app';
 import { AppComponentContext, Container } from 'next/app';
 import { DrawerContent } from 'components/commons';
 import { Layout } from 'components/ui';
-import fetch from 'isomorphic-unfetch';
+// import fetch from 'isomorphic-unfetch';
 
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
+// import ApolloClient from 'apollo-boost';
+// import { ApolloProvider } from 'react-apollo';
 
-const client = new ApolloClient({ uri: 'http://localhost:9000', fetchOptions: { fetch } });
+// const client = new ApolloClient({ uri: 'http://localhost:9000', fetchOptions: { fetch } });
 
 import '../src/styles/index.scss';
 
@@ -40,14 +40,14 @@ export default class MyApp extends App {
 
     return (
       <Container>
-        <ApolloProvider client={client}>
+        {/* <ApolloProvider client={client}> */}
           <Layout
             appName="App Name"
             drawerContent={<DrawerContent />}
           >
             <Component {...pageProps} />
           </Layout>
-        </ApolloProvider>
+        {/* </ApolloProvider> */}
       </Container>
     );
   }
