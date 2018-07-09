@@ -8,7 +8,7 @@ import {
   TableHead,
   TableRow,
 } from 'components/ui';
-import { DatagridTableColumn } from './models';
+import { DatagridTableColumn, DatagridQuery } from './models';
 import { StringKeyValuePair } from '../models';
 import { add, pickAll, pluck } from 'ramda';
 
@@ -16,10 +16,12 @@ import { add, pickAll, pluck } from 'ramda';
 // TODO: deal with empty data
 // TODO: tableColumns should not be required. Define rules/behaviors
 // TODO: should use memoization for performance?
+// TODO: when text aligned to left, order arrow should be at right side of header text
 
 export type DatagridTableProps = {
-  items?: StringKeyValuePair[];
   itemUniqueKey?: string;
+  items?: StringKeyValuePair[];
+  query?: DatagridQuery;
   tableColumns: DatagridTableColumn[];
 };
 
@@ -43,18 +45,24 @@ export const DatagridTable: SFC<DatagridTableProps> = (props) => (
 DatagridTable.defaultProps = {
   items: [],
   itemUniqueKey: '',
+  query: {},
 };
 
-function renderHeaders({ tableColumns }: DatagridTableProps) {
-  return tableColumns.map(({ header, style, ...otherProps }) => (
-    <TableCell
-      head
-      style={getCellStyle(style)}
-      {...otherProps}
-    >
-      {header}
-    </TableCell>
-  ));
+function renderHeaders({ query, tableColumns }: DatagridTableProps) {
+  return tableColumns.map(({ header, style, ...otherColumnProps }) => {
+    const active = otherColumnProps.key === query.orderBy;
+    const sortOrder = active ? query.order : undefined;
+
+    const props = {
+      active,
+      head: true,
+      sortOrder,
+      style: getCellStyle(style),
+      ...otherColumnProps,
+    };
+
+    return <TableCell {...props}>{header}</TableCell>;
+  });
 }
 
 function renderRows(props: DatagridTableProps) {

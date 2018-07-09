@@ -7,4 +7,11 @@ export type DatagridTableColumn = {
   style?: CSSProperties;
 };
 
+export type DatagridQuery = {
+  order?: Order;
+  orderBy?: string;
+  page?: number;
+  rowsPerPage?: number;
+};
+
 export type Order = 'asc' | 'desc';

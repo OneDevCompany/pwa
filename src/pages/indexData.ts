@@ -1,6 +1,6 @@
 import { drop, prop, reduce, sortBy, take } from 'ramda';
 
-export type People = typeof people;
+export type Person = typeof people[0];
 
 const people = [
   {

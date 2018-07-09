@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import Link from 'next/link';
 import { Datagrid, SquareButton } from 'components/ui';
-import { getPeople, People } from '../src/pages/indexData';
+import { getPeople, Person } from '../src/pages/indexData';
 // import { gql } from 'apollo-boost';
 // import { Query } from 'react-apollo';
 
@@ -28,7 +28,7 @@ type State = Readonly<typeof initialState>;
 
 const initialState = {
   loading: true,
-  items: [] as People,
+  items: [] as Person[],
 };
 
 export default class extends Component<{}, State> {
@@ -42,6 +42,7 @@ export default class extends Component<{}, State> {
   render() {
     return (
       <Datagrid
+        itemUniqueKey="email"
         mainButton={
           <Link href="/other">
             <SquareButton
@@ -52,7 +53,10 @@ export default class extends Component<{}, State> {
             />
           </Link>
         }
-        itemUniqueKey="email"
+        query={{
+          order: 'asc',
+          orderBy: 'email',
+        }}
         tableColumns={[
           { key: 'name', header: 'Name' },
           { key: 'email', header: 'Email' },
