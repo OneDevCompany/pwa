@@ -1,4 +1,8 @@
-export const people = [
+import { drop, prop, reduce, sortBy, take } from 'ramda';
+
+export type People = typeof people;
+
+const people = [
   {
     id: '5b3a86b1882c9d5189a6b5dc',
     age: 21,
@@ -175,3 +179,32 @@ export const people = [
     occupation: 'Trainee',
   },
 ];
+
+type Options = {
+  take?: number;
+  skip?: number;
+  sortBy?: string;
+  ascending?: 1 | -1;
+};
+
+export const getPeople = (options: Options = {}) => {
+  let data = !!options.sortBy
+    ? sortBy(prop(options.sortBy), people) as any
+    : people;
+
+  data = (!!options.sortBy && options.ascending === -1)
+    ? reduce((accu, curr) => [curr, ...accu], [], data)
+    : data;
+
+  data = !!options.skip
+    ? drop(options.skip, data)
+    : data;
+
+  data = !!options.take
+    ? take(options.take, data)
+    : data;
+
+  return new Promise(resolve =>
+    setTimeout(() => resolve(data), 1000),
+  ) as Promise<People>;
+};

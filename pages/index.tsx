@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Component } from 'react';
 import Link from 'next/link';
 import { Datagrid, SquareButton } from 'components/ui';
-import * as indexData from '../src/pages/indexData';
+import { getPeople, People } from '../src/pages/indexData';
 // import { gql } from 'apollo-boost';
 // import { Query } from 'react-apollo';
 
@@ -24,8 +24,6 @@ import * as indexData from '../src/pages/indexData';
 // TODO: when !!error, show snackbar
 // TODO: change items and itemUniqueKey props name for data and dataUniqueKey
 
-type People = typeof indexData.people;
-
 type State = Readonly<typeof initialState>;
 
 const initialState = {
@@ -37,12 +35,7 @@ export default class extends Component<{}, State> {
   readonly state: State = initialState;
 
   async componentDidMount() {
-    const getPeople = () => new Promise(resolve =>
-      setTimeout(() => resolve(indexData.people), 1000),
-    ) as Promise<People>;
-
     const items = await getPeople();
-
     this.setState({ items, loading: false });
   }
 
