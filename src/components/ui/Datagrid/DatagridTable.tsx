@@ -8,7 +8,7 @@ import {
   TableHead,
   TableRow,
 } from 'components/ui';
-import { DatagridTableColumn, DatagridQuery } from './models';
+import { TableColumn, Ordering } from './models';
 import { StringKeyValuePair } from '../models';
 import { add, pickAll, pluck } from 'ramda';
 
@@ -17,13 +17,14 @@ import { add, pickAll, pluck } from 'ramda';
 // TODO: tableColumns should not be required. Define rules/behaviors
 // TODO: should use memoization for performance?
 // TODO: when text aligned to left, order arrow should be at right side of header text
+// TODO: use Extract or Pick interfaces from TS to reuse this Props in Datagrid
+// TODO: see if there is a difference between prop: () => void and prop(): void
 
 export type DatagridTableProps = {
-  itemUniqueKey?: string;
-  items?: StringKeyValuePair[];
-  query?: DatagridQuery;
-  tableColumns: DatagridTableColumn[];
-};
+  itemUniqueKey: string;
+  items: StringKeyValuePair[];
+  tableColumns: TableColumn[];
+} & Ordering;
 
 export const DatagridTable: SFC<DatagridTableProps> = (props) => (
   <Table>
@@ -43,15 +44,14 @@ export const DatagridTable: SFC<DatagridTableProps> = (props) => (
 );
 
 DatagridTable.defaultProps = {
-  items: [],
-  itemUniqueKey: '',
-  query: {},
+  order: undefined,
+  orderBy: undefined,
 };
 
-function renderHeaders({ query, tableColumns }: DatagridTableProps) {
+function renderHeaders({ order, orderBy, tableColumns }: DatagridTableProps) {
   return tableColumns.map(({ header, style, ...otherColumnProps }) => {
-    const active = otherColumnProps.key === query.orderBy;
-    const sortOrder = active ? query.order : undefined;
+    const active = otherColumnProps.key === orderBy;
+    const sortOrder = active ? order : undefined;
 
     const props = {
       active,

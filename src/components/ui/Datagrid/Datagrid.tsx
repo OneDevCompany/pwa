@@ -3,19 +3,25 @@ import { Component, ReactNode } from 'react';
 import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
 import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
-import { DatagridTable, DatagridTableProps } from './DatagridTable';
+import { DatagridTable } from './DatagridTable';
 import { DatagridHeader } from './DatagridHeader';
-import { Scrollbars } from 'components/ui';
+import { Scrollbars, Query, TableColumn } from 'components/ui';
+import { StringKeyValuePair } from 'components/ui/models';
 
 // TODO: default column width via prop
+// TODO: if a CardView will be implemented, tableColumns prop should not be required
 
 type DatagridProps = {
+  itemUniqueKey: string;
+  items: StringKeyValuePair[];
   loading?: boolean;
   mainButton?: ReactNode;
   noFilters?: boolean;
   noHeader?: boolean;
   noPagination?: boolean;
-} & DatagridTableProps;
+  query?: Query;
+  tableColumns: TableColumn[];
+};
 
 type DatagridState = {
   filtersDrawerOpen: boolean;
@@ -28,6 +34,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     noFilters: false,
     noHeader: false,
     noPagination: false,
+    query: {},
   };
 
   constructor(props: any) {
@@ -73,11 +80,15 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     );
   }
 
-  private renderTable = (props: DatagridProps) => (
-    <Scrollbars className="odc-datagrid__table-external-scrollbars">
-      <DatagridTable {...props} />
-    </Scrollbars>
-  );
+  private renderTable = ({ query, ...otherProps }: DatagridProps) => {
+    const tableProps = { ...query, ...otherProps };
+
+    return (
+      <Scrollbars className="odc-datagrid__table-external-scrollbars">
+        <DatagridTable {...tableProps} />
+      </Scrollbars>
+    );
+  }
 
   private toggleFilters = () => this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen });
 }
