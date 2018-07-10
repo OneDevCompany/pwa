@@ -5,7 +5,7 @@ import { DatagridFilters } from './DatagridFilters';
 import { DatagridPagination } from './DatagridPagination';
 import { DatagridTable } from './DatagridTable';
 import { DatagridHeader } from './DatagridHeader';
-import { Scrollbars, Query, TableColumn } from 'components/ui';
+import { Scrollbars, Ordering, TableColumn, Query } from 'components/ui';
 import { StringKeyValuePair } from 'components/ui/models';
 
 // TODO: default column width via prop
@@ -21,6 +21,7 @@ type DatagridProps = {
   noPagination?: boolean;
   query?: Query;
   tableColumns: TableColumn[];
+  onQueryChange?: (query: Query) => void;
 };
 
 type DatagridState = {
@@ -35,6 +36,7 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     noHeader: false,
     noPagination: false,
     query: {},
+    onQueryChange: () => null,
   };
 
   constructor(props: any) {
@@ -85,9 +87,21 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
 
     return (
       <Scrollbars className="odc-datagrid__table-external-scrollbars">
-        <DatagridTable {...tableProps} />
+        <DatagridTable
+          {...tableProps}
+          onChangeOrdering={this.handleOrderingChange}
+        />
       </Scrollbars>
     );
+  }
+
+  private handleOrderingChange = (ordering: Ordering) => {
+    const { query, onQueryChange } = this.props;
+
+    onQueryChange({
+      ...query,
+      ...ordering,
+    });
   }
 
   private toggleFilters = () => this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen });

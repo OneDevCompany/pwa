@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { SFC, CSSProperties } from 'react';
+import { StringKeyValuePair } from '../models';
+import { add, pickAll, pluck } from 'ramda';
 import {
   Scrollbars,
   Table,
@@ -7,10 +9,10 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  TableColumn,
+  Ordering,
+  toggleOrder,
 } from 'components/ui';
-import { TableColumn, Ordering } from './models';
-import { StringKeyValuePair } from '../models';
-import { add, pickAll, pluck } from 'ramda';
 
 // TODO: extract TableHead and TableBody with their logic to other files?
 // TODO: deal with empty data
@@ -24,6 +26,7 @@ export type DatagridTableProps = {
   itemUniqueKey: string;
   items: StringKeyValuePair[];
   tableColumns: TableColumn[];
+  onChangeOrdering?: (ordering: Ordering) => void;
 } & Ordering;
 
 export const DatagridTable: SFC<DatagridTableProps> = (props) => (
@@ -44,24 +47,33 @@ export const DatagridTable: SFC<DatagridTableProps> = (props) => (
 );
 
 DatagridTable.defaultProps = {
-  order: undefined,
-  orderBy: undefined,
+  order: null,
+  orderBy: null,
+  onChangeOrdering: () => null,
 };
 
-function renderHeaders({ order, orderBy, tableColumns }: DatagridTableProps) {
-  return tableColumns.map(({ header, style, ...otherColumnProps }) => {
-    const active = otherColumnProps.key === orderBy;
-    const sortOrder = active ? order : undefined;
+// TODO: refactor these functions for use arrow functions
 
-    const props = {
-      active,
-      head: true,
-      sortOrder,
-      style: getCellStyle(style),
-      ...otherColumnProps,
-    };
+function renderHeaders(props: DatagridTableProps) {
+  return props.tableColumns.map(({ header, style, ...otherColumnProps }) => {
+    const active = otherColumnProps.key === props.orderBy;
+    const order = active ? props.order : undefined;
+    const onClick = otherColumnProps.noSort
+      ? DatagridTable.defaultProps.onChangeOrdering as () => null
+      : handleOrderingChange(otherColumnProps.key, props);
 
-    return <TableCell {...props}>{header}</TableCell>;
+    return (
+      <TableCell
+        active={active}
+        head
+        order={order}
+        style={getCellStyle(style)}
+        onClick={onClick}
+        {...otherColumnProps}
+      >
+        {header}
+      </TableCell>
+    );
   });
 }
 
@@ -120,3 +132,21 @@ function getScrollbarStyle({ tableColumns }: DatagridTableProps) {
 
   return { minWidth };
 }
+
+const handleOrderingChange = (clickedHeaderKey: string, props: DatagridTableProps) => () => {
+  const { order, orderBy } = props;
+
+  if (clickedHeaderKey === orderBy) {
+    props.onChangeOrdering({
+      order: toggleOrder(order),
+      orderBy,
+    });
+
+    return;
+  }
+
+  props.onChangeOrdering({
+    order: 'asc',
+    orderBy: clickedHeaderKey,
+  });
+};
