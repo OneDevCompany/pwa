@@ -1,9 +1,10 @@
-import { createAction, createReducer } from 'redux-act';
+import { Action, createAction, createReducer } from 'redux-act';
+import { delay } from 'redux-saga';
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { Person } from 'models';
 import { combineReducers } from 'redux';
 import { Query } from 'components/ui';
-import { getPeople } from 'src/pages/people/data';
+import { fetchPeople } from 'services';
 
 const actionType = (uniqueType: string) => `people/${uniqueType}`;
 
@@ -11,6 +12,7 @@ const actionType = (uniqueType: string) => `people/${uniqueType}`;
 
 export const actions = {
   fetchInitialData: createAction(actionType('FETCH_INITIAL_DATA_REQUESTED')),
+  fetchItems: createAction<Query>(actionType('FETCH_ITEMS')),
   hideLoading: createAction(actionType('HIDE_LOADING')),
   showLoading: createAction(actionType('SHOW_LOADING')),
   setQuery: createAction<Query>(actionType('SET_QUERY')),
@@ -57,7 +59,23 @@ export default combineReducers({
 function* fetchInitialDataSaga() {
   try {
     yield put(actions.showLoading());
-    const people = yield call(getPeople);
+    const people = yield call(fetchPeople);
+    yield put(actions.setItems(people));
+  } catch (e) {
+    console.error(e);
+  } finally {
+    yield put(actions.hideLoading());
+  }
+}
+
+function* fetchItemsSaga(action: Action<Query>) {
+  const query = action.payload;
+
+  try {
+    yield put(actions.setQuery(query));
+    yield call(delay, 500);
+    yield put(actions.showLoading());
+    const people = yield call(fetchPeople, query);
     yield put(actions.setItems(people));
   } catch (e) {
     console.error(e);
@@ -68,4 +86,5 @@ function* fetchInitialDataSaga() {
 
 export function* peoplePageSaga() {
   yield takeLatest(actions.fetchInitialData, fetchInitialDataSaga);
+  yield takeLatest(actions.fetchItems, fetchItemsSaga);
 }

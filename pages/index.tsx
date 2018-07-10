@@ -56,7 +56,7 @@ class PeoplePage extends Component<PeoplePageProps> {
           { key: 'occupation', header: 'Occupation', style: { flexBasis: 180 } },
           { key: 'age', header: 'Age', style: { flexBasis: 100 } },
         ]}
-        onQueryChange={console.log}
+        onQueryChange={this.props.fetchItems}
         {...this.props}
       />
     );

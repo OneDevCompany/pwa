@@ -1,21 +1,16 @@
 // import { VenuesPageQuery } from 'models';
 import { actions, State as PeopleState } from 'src/redux/modules/people';
+import { Query } from 'components/ui';
 
 export type MapStateToProps = PeopleState;
 export type MapDispatchToProps = typeof actions;
-
-// export type MapDispatchToProps = {
-//   // fetchInitialData: (query: Query) => void;
-//   fetchInitialData: typeof actions['fetchInitialData'],
-//   // fetchVenues: (venuesQuery: VenuesPageQuery) => void;
-// };
 
 type State = {
   people: PeopleState;
 };
 
-export const mapStateToProps = (state: State): MapStateToProps => ({
-  ...state.people,
+export const mapStateToProps = ({ people }: State): MapStateToProps => ({
+  ...people,
   // loading: state.app.loading,
 });
 
@@ -23,6 +18,6 @@ export const mapStateToProps = (state: State): MapStateToProps => ({
 export const mapDispatchToProps = (dispatch: any) => {
   return {
     fetchInitialData: () => dispatch(actions.fetchInitialData()),
-    // fetchVenues: (venuesQuery: Query) => dispatch(actions.fetchVenues(venuesQuery)),
+    fetchItems: (query: Query) => dispatch(actions.fetchItems(query)),
   } as MapDispatchToProps;
 };
