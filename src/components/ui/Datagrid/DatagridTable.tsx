@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { SFC, CSSProperties } from 'react';
-import { StringKeyValuePair } from '../models';
+import { StringKeyValuePair } from 'components/ui/models';
 import { add, pickAll, pluck } from 'ramda';
 import {
   Scrollbars,
