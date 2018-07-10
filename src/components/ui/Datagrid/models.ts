@@ -9,6 +9,11 @@ export type TableColumn = {
 
 export type Order = 'asc' | 'desc';
 
+// TODO: refactor to:
+// export type Ordering<T extends StringKeyValuePair> = {
+//   order?: Order;
+//   orderBy?: keyof T;
+// };
 export type Ordering = {
   order?: Order;
   orderBy?: string;
