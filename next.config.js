@@ -6,6 +6,8 @@ module.exports = withTypescript(withSass({
   webpack(config, options) {
     config.resolve.alias = {
       'components': path.resolve(__dirname, 'src/components'),
+      'models': path.resolve(__dirname, 'src/models'),
+      'src': path.resolve(__dirname, 'src'),
     };
 
     return config;

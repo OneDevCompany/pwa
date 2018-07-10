@@ -1,8 +1,15 @@
 import * as React from 'react';
-import { Component } from 'react';
 import Link from 'next/link';
-import { Datagrid, SquareButton, Order, Query, Ordering } from 'components/ui';
-import { getPeople, Person } from '../src/pages/indexData';
+import { Component } from 'react';
+import { connect } from 'react-redux';
+import { Datagrid, SquareButton } from 'components/ui';
+import {
+  PeoplePageProps,
+  mapStateToProps,
+  mapDispatchToProps,
+  MapStateToProps,
+  MapDispatchToProps,
+} from 'src/pages/people';
 // import { gql } from 'apollo-boost';
 // import { Query } from 'react-apollo';
 
@@ -24,23 +31,9 @@ import { getPeople, Person } from '../src/pages/indexData';
 // TODO: when !!error, show snackbar
 // TODO: change items and itemUniqueKey props name for data and dataUniqueKey
 
-type State = Readonly<typeof initialState>;
-
-const initialState = {
-  loading: true,
-  items: [] as Person[],
-  query: {
-    order: 'asc' as Order,
-    orderBy: 'email',
-  } as Partial<Ordering>,
-};
-
-export default class extends Component<{}, State> {
-  readonly state: State = initialState;
-
-  async componentDidMount() {
-    const items = await getPeople();
-    this.setState({ items, loading: false });
+class PeoplePage extends Component<PeoplePageProps> {
+  componentDidMount() {
+    this.props.fetchInitialData();
   }
 
   render() {
@@ -60,22 +53,14 @@ export default class extends Component<{}, State> {
         tableColumns={[
           { key: 'name', header: 'Name' },
           { key: 'email', header: 'Email' },
-          { key: 'occupation', header: 'Occupation', noSort: true, style: { flexBasis: 180 } },
+          { key: 'occupation', header: 'Occupation', style: { flexBasis: 180 } },
           { key: 'age', header: 'Age', style: { flexBasis: 100 } },
         ]}
-        onQueryChange={this.updateQuery}
-        {...this.state}
+        onQueryChange={console.log}
+        {...this.props}
       />
     );
   }
-
-  private updateQuery = async (query: Query) => {
-    const items = await getPeople({
-      sortBy: query.orderBy,
-      ascending: query.order === 'asc' ? 1 : -1,
-    });
-
-    const updatedState = { ...this.state, items, query };
-    this.setState(updatedState);
-  };
 }
+
+export default connect<MapStateToProps, MapDispatchToProps, {}>(mapStateToProps, mapDispatchToProps)(PeoplePage);

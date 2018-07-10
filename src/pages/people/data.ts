@@ -206,5 +206,5 @@ export const getPeople = (options: Options = {}) => {
 
   return new Promise(resolve =>
     setTimeout(() => resolve(data), 1000),
-  ) as Promise<People>;
+  ) as Promise<Person[]>;
 };

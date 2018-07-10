@@ -1,8 +1,10 @@
 import * as React from 'react';
 import App from 'next/app';
 import { AppComponentContext, Container } from 'next/app';
+import { Provider } from 'react-redux';
 import { DrawerContent } from 'components/commons';
 import { Layout } from 'components/ui';
+import { store } from '../src/redux';
 // import fetch from 'isomorphic-unfetch';
 
 // import ApolloClient from 'apollo-boost';
@@ -41,12 +43,14 @@ export default class MyApp extends App {
     return (
       <Container>
         {/* <ApolloProvider client={client}> */}
-          <Layout
-            appName="App Name"
-            drawerContent={<DrawerContent />}
-          >
-            <Component {...pageProps} />
-          </Layout>
+          <Provider store={store}>
+            <Layout
+              appName="App Name"
+              drawerContent={<DrawerContent />}
+            >
+              <Component {...pageProps} />
+            </Layout>
+          </Provider>
         {/* </ApolloProvider> */}
       </Container>
     );
