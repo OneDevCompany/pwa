@@ -1,32 +1,31 @@
-import * as React from 'react';
-import { Component, ReactNode } from 'react';
-import { DatagridAnimationWrapper } from './DatagridAnimationWrapper';
-import { DatagridFilters } from './DatagridFilters';
-import { DatagridPagination } from './DatagridPagination';
-import { DatagridTable } from './DatagridTable';
-import { DatagridHeader } from './DatagridHeader';
-import { Scrollbars, Ordering, TableColumn, Query } from 'components/ui';
-import { StringKeyValuePair } from 'components/ui/models';
+import * as React from 'react'
+import { Component, ReactNode } from 'react'
+import { DatagridAnimationWrapper } from './DatagridAnimationWrapper'
+import { DatagridFilters } from './DatagridFilters'
+import { DatagridPagination } from './DatagridPagination'
+import { DatagridTable } from './DatagridTable'
+import { DatagridHeader } from './DatagridHeader'
+import { Scrollbars, Ordering, TableColumn, Query } from 'components/ui'
 
 // TODO: default column width via prop
 // TODO: if a CardView will be implemented, tableColumns prop should not be required
 
 type DatagridProps = {
-  itemUniqueKey: string;
-  items: StringKeyValuePair[];
-  loading?: boolean;
-  mainButton?: ReactNode;
-  noFilters?: boolean;
-  noHeader?: boolean;
-  noPagination?: boolean;
-  query?: Query;
-  tableColumns: TableColumn[];
-  onQueryChange?: (query: Query) => void;
-};
+  itemUniqueKey: string
+  items: Record<string, unknown>[]
+  loading?: boolean
+  mainButton?: ReactNode
+  noFilters?: boolean
+  noHeader?: boolean
+  noPagination?: boolean
+  query?: Query
+  tableColumns: TableColumn[]
+  onQueryChange?: (query: Query) => void
+}
 
 type DatagridState = {
-  filtersDrawerOpen: boolean;
-};
+  filtersDrawerOpen: boolean
+}
 
 export class Datagrid extends Component<DatagridProps, DatagridState> {
   static defaultProps: Partial<DatagridProps> = {
@@ -37,14 +36,14 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
     noPagination: false,
     query: {},
     onQueryChange: () => null,
-  };
+  }
 
   constructor(props: any) {
-    super(props);
+    super(props)
 
     this.state = {
       filtersDrawerOpen: false,
-    };
+    }
   }
 
   render() {
@@ -54,9 +53,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
       noFilters,
       noHeader,
       noPagination,
-    } = this.props;
+    } = this.props
 
-    const { filtersDrawerOpen } = this.state;
+    const { filtersDrawerOpen } = this.state
 
     return (
       <div className="odc-datagrid">
@@ -69,7 +68,9 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
           />
         )}
 
-        {!!noFilters ? this.renderTable(this.props) : (
+        {!!noFilters ? (
+          this.renderTable(this.props)
+        ) : (
           <DatagridAnimationWrapper open={filtersDrawerOpen}>
             {this.renderTable(this.props)}
 
@@ -79,11 +80,11 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
 
         {!noPagination && <DatagridPagination />}
       </div>
-    );
+    )
   }
 
   private renderTable = ({ query, ...otherProps }: DatagridProps) => {
-    const tableProps = { ...query, ...otherProps };
+    const tableProps = { ...query, ...otherProps }
 
     return (
       <Scrollbars className="odc-datagrid__table-external-scrollbars">
@@ -92,17 +93,18 @@ export class Datagrid extends Component<DatagridProps, DatagridState> {
           onChangeOrdering={this.handleOrderingChange}
         />
       </Scrollbars>
-    );
+    )
   }
 
   private handleOrderingChange = (ordering: Ordering) => {
-    const { query, onQueryChange } = this.props;
+    const { query, onQueryChange } = this.props
 
     onQueryChange({
       ...query,
       ...ordering,
-    });
+    })
   }
 
-  private toggleFilters = () => this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen });
+  private toggleFilters = () =>
+    this.setState({ filtersDrawerOpen: !this.state.filtersDrawerOpen })
 }
