@@ -1,58 +1,21 @@
-import * as React from 'react';
-import App from 'next/app';
-import { AppComponentContext, Container } from 'next/app';
-import { Provider } from 'react-redux';
-import { DrawerContent } from 'components/commons';
-import { Layout } from 'components/ui';
-import { store } from '../src/redux';
-// import fetch from 'isomorphic-unfetch';
+// import App from "next/app";
+import type { AppProps /*, AppContext */ } from 'next/app'
+import '../lib/styles/index.scss'
 
-// import ApolloClient from 'apollo-boost';
-// import { ApolloProvider } from 'react-apollo';
-
-// const client = new ApolloClient({ uri: 'http://localhost:9000', fetchOptions: { fetch } });
-
-import '../src/styles/index.scss';
-
-// TODO: remove custom_typings for next and rmwc?
-// TODO: refactor all styles to use css grid
-// TODO: apply patterns https://levelup.gitconnected.com/ultimate-react-component-patterns-with-typescript-2-8-82990c516935
-// TODO: refactor for use ramda?
-// TODO: check if call a funciton like this.renderSomething() inside render() always return false in componentShouldUpdate
-// TODO: add tooltips in buttons and table head
-// TODO: set font-weight: 300 as default for some typographies
-// TODO: split CSS code
-// TODO: check performance at components
-// TODO: create a issue at jamesmfriedman/rmwc: TopAppBar:fixed not working. TopAppBar is by default fixed. Set it to fixed={false} doesnt work
-// TODO: create a vscode extension jsx utils
-
-export default class MyApp extends App {
-  static async getInitialProps({ Component, ctx }: AppComponentContext) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx);
-    }
-
-    return { pageProps };
-  }
-
-  render() {
-    const { Component, pageProps } = this.props;
-
-    return (
-      <Container>
-        {/* <ApolloProvider client={client}> */}
-          <Provider store={store}>
-            <Layout
-              appName="App Name"
-              drawerContent={<DrawerContent />}
-            >
-              <Component {...pageProps} />
-            </Layout>
-          </Provider>
-        {/* </ApolloProvider> */}
-      </Container>
-    );
-  }
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
 }
+
+// Only uncomment this method if you have blocking data requirements for
+// every single page in your application. This disables the ability to
+// perform automatic static optimization, causing every page in your app to
+// be server-side rendered.
+//
+// MyApp.getInitialProps = async (appContext: AppContext) => {
+//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   const appProps = await App.getInitialProps(appContext);
+
+//   return { ...appProps }
+// }
+
+export default MyApp
