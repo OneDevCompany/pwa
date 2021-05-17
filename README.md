@@ -1,2 +1,3 @@
-# pwa
-PWA made with React
+# odc-ui
+
+OneDevCompany UI React components
