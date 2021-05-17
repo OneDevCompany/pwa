@@ -1,40 +1,29 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ES2020",
-    "lib": ["dom", "es2020"],
-    "allowJs": false,
-    // "checkJs": true,
-    "jsx": "react",
-    "declaration": true,
-    "sourceMap": true,
-    // "outDir": "./",
-    // "rootDir": "./",
-    // "removeComments": true,
-    "importHelpers": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "components": ["src/components/index.ts"],
-      "components/*": ["src/components/*"],
-      "models": ["src/models/index.ts"],
-      "services": ["src/services/index.ts"],
-      "src/*": ["src/*"],
-      "styles": ["src/styles/index.scss"]
-    },
-    // "rootDirs": [],
-    "esModuleInterop": true
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
   },
-  "include": ["pages/**/*", "src/**/*"],
-  "exclude": ["node_modules", "server.js"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
