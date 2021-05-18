@@ -4,7 +4,6 @@
 @import '@rmwc/icon/icon.css';
 
 .mdc-top-app-bar {
-  position: relative;
   color: $odc-theme-text-primary-on-background;
   background-color: white;
   border-bottom: $odc-divider-border;
@@ -23,5 +22,12 @@
     // @include mdc-states-base-color(black);
     color: $odc-theme-text-primary-on-background;
     user-select: none;
+  }
+
+  .odc-square-button {
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    order: -1;
   }
 }
