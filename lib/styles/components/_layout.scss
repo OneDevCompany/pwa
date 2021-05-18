@@ -3,7 +3,6 @@
 
 .odc-layout {
   height: 100vh;
-  padding-left: $odc-side-tape-width-lg;
   overflow: hidden;
 
   flex-grow: 1;
@@ -28,8 +27,12 @@
   // @media (max-width: $mdc-toolbar-mobile-breakpoint) {
   //   padding-left: $odc-side-tape-width-sm;
   // }
+  .mdc-top-app-bar {
+    position: relative;
+  }
 
-  &__container {
+  .container {
+    padding-left: $odc-side-tape-width-lg;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
