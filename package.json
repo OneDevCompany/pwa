@@ -42,5 +42,6 @@
     "tslib": "1.9.2",
     "tslint": "5.10.0",
     "typescript": "2.9.2"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
